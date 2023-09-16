@@ -14,11 +14,10 @@
 
 char	*ft_strchr(const char *s, int c)
 {
-	unsigned int	a;
-	
-	
+	int		a;
+
 	a = 0;
-	while (s[a] != '\0')
+	while (s[a])
 	{
 		if (s[a] == c)
 		{
