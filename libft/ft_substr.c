@@ -15,21 +15,21 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	unsigned int	i;
-	unsigned int	j;
 	char			*reserved;
 
-	j = 0;
-	while (s[j] == '\0')
+	if (s == NULL)
 		return (NULL);
 	if (len <= 0 || start >= ft_strlen(s))
-		return (NULL);
-	reserved = malloc(sizeof(char *) * ft_strlen(s));
+		return (ft_strdup(""));
+	if (len > ft_strlen(s) - start)
+		len = ft_strlen(s) - start;
+	reserved = (char *)malloc(sizeof(char) * (len + 1));
 	if (NULL == reserved)
 		return (NULL);
 	i = 0;
 	while (i < len && s[i] != 0)
 	{
-		reserved[i] = s[start - 1];
+		reserved[i] = s[start];
 		i++;
 		start++;
 	}
