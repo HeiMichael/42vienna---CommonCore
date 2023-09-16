@@ -27,7 +27,7 @@ char	*ft_strrchr(const char *s, int c)
 		}
 		a--;
 	if (s[a] == (char)c)
-		return(char *)s + b);
+		return((char *)s + b);
 	}
 	return (NULL);
 }
