@@ -46,7 +46,6 @@ char	*ft_itoa(int n)
 		ft_strlcpy (str, "-2147483648", 12);
 		return (str);
 	}
-
 	len_n = 0;
 	if (n < 0)
 	{
