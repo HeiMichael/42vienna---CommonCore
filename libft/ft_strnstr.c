@@ -24,6 +24,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	if (*small == '\0' || small == NULL)
 		return (string);
 	a = ft_strlen(small);
+	if (ft_strlen(string) < a || len < a)
+		return (NULL);
 	i = 0;
 	while (i < len)
 	{
@@ -32,6 +34,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 			string = &string[i];
 			if (ft_memcmp(string, small, a) == 0 && (i + a) <= len)
 				return (string);
+			else
+				return (NULL);
 		}
 		i++;
 	}
