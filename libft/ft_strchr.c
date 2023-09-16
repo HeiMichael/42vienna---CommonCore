@@ -26,6 +26,8 @@ char	*ft_strchr(const char *s, int c)
 		}
 		a++;
 	}
+	if (c == '\0')
+		return ((char *)&s[a]);
 	return (NULL);
 }
 
