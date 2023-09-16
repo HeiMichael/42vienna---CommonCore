@@ -70,10 +70,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	t1 = (char *)s1;
 	trim = (char *)set;
-	if (*t1 == NULL)
-		return (NULL);
-	if (*trim == NULL || '\0')
+	if (!*t1)
+	
+		return (t1);
+	if (!*trim)
+	{
+		res = malloc(sizeof(char) * (1));
 		return (ft_strdup(s1));
+	}
 	t1 = begin(t1, trim);
 	t1_len = ft_strlen(t1);
 	i = end(t1, trim, t1_len);
