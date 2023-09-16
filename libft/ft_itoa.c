@@ -36,23 +36,16 @@ static int	length(int n, int len_n)
 char	*ft_itoa(int n)
 {
 	int		sign;
-	long long		num;
+	long long int	num;
 	int		len_n;
 	char	*str;
-
-
-	if (n == -2147483648)
-	{
-		str = (char *)malloc(sizeof(char) * (12));
-		return ("-2147483648");
+	num = n;
+	if (num == -2147483648)
+	{	
+		str = malloc(sizeof(char) * 12);		
+		ft_strlcpy (str, "-2147483648", 12);
+		return (str);
 	}
-
-//	if (n == -2147483648)
-//	{	
-//		str = malloc(sizeof(char) * 12);
-//		ft_strlcpy (str, -2147483648, 12);
-//		return (str);
-//	}
 
 	len_n = 0;
 	if (n < 0)
@@ -81,7 +74,7 @@ int	main(void)
 {
 	int	a;
 
-	a = 2483648;
+	a = -2147483648;
 	printf("%s", ft_itoa(a));
 	return (0);
 }*/

@@ -21,18 +21,18 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 	string = (char *)big;
 	small = (char *)little;
-	if (*small == '\0' || small == NULL)
+	if (*small == '\0')
 		return (string);
 	a = ft_strlen(small);
-	if (ft_strlen(string) < a || len < a)
+	if (ft_strlen(string) < a || len < a || a == 0)
 		return (NULL);
 	i = 0;
-	while (i < ((len - a) + 1) && string[i] != '\0')
+	while ((i <= (len - a)) && string[i] != '\0')
 	{
 		if (string[i] == small[0])
 		{
 			string = &string[i];
-			if (ft_memcmp(string, small, a) == 0 && (i + a) <= len)
+			if (ft_memcmp(string, small, a) == 0)
 				return (string);
 			else
 				return (NULL);
