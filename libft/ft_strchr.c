@@ -6,7 +6,7 @@
 /*   By: miheider <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/05 19:01:31 by miheider          #+#    #+#             */
-/*   Updated: 2023/09/15 10:25:48 by miheider         ###   ########.fr       */
+/*   Updated: 2023/09/16 11:58:26 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,9 @@
 char	*ft_strchr(const char *s, int c)
 {
 	unsigned int	a;
-
+	
+	if (s == NULL)
+		return (NULL);
 	a = 0;
 	while (s[a] != '\0')
 	{

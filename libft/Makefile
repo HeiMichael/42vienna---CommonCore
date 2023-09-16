@@ -6,7 +6,7 @@
 #    By: miheider <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/13 11:49:47 by miheider          #+#    #+#              #
-#    Updated: 2023/09/14 19:30:16 by miheider         ###   ########.fr        #
+#    Updated: 2023/09/16 12:01:15 by miheider         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -43,6 +43,6 @@ clean:
 fclean: clean
 	$(RM) $(NAME)
 
-re: fclean
+re: fclean all
 
 .PHONY: clean, fclean, re
