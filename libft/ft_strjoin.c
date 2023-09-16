@@ -18,9 +18,13 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	unsigned int	j;
 	char			*reserved;
 
-	if (!s1 || !s2)
+	if (!s1 && !s2)
 		return (NULL);
-	reserved = malloc(sizeof(char *) * (ft_strlen(s1)+ft_strlen(s2)) + 1);
+	if (s1 && ! s2)
+		return (ft_strdup(s1));
+	if (!s1 && s2)
+		return (ft_strdup(s2));
+	reserved = (char *)malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2)) + 1));
 	if (NULL == reserved)
 		return (NULL);
 	i = 0;

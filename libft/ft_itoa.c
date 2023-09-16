@@ -16,7 +16,7 @@ static char	*ft_translate(char *str, int num, int len_n)
 {
 	while (len_n >= 0)
 	{
-		str[len_n] = (num % 10) + 48;
+		str[len_n] = (num % 10) + '0';
 		num /= 10;
 		len_n--;
 	}
@@ -36,12 +36,15 @@ static int	length(int n, int len_n)
 char	*ft_itoa(int n)
 {
 	int		sign;
-	int		num;
+	long long		num;
 	int		len_n;
 	char	*str;
 
 	if (n == -2147483648)
+	{
+		str = (char *)malloc(sizeof(char) * (12));
 		return ("-2147483648");
+	}
 	len_n = 0;
 	if (n < 0)
 	{
@@ -51,10 +54,10 @@ char	*ft_itoa(int n)
 	}
 	num = n;
 	len_n = length(num, len_n);
-	str = (char *)malloc((sizeof(char) * len_n) + 1);
+	str = (char *)malloc(sizeof(char) * (len_n + 2));  //+1 potential sign, +1 for '\0'
 	if (!str)
 		return (NULL);
-	str[len_n + 1] = '\0';
+	str[len_n] = '\0';
 	str = ft_translate(str, num, len_n);
 	if (sign == 1)
 		str[0] = '-';

@@ -95,8 +95,8 @@ char	**ft_split(char const *s, char c)
 	int		i;
 	int		j;
 
-	if (!s)
-		return (0);
+	if (!s || !*s)
+		return (NULL);
 	str = (char *)s;
 	i = 0;
 	while (str[i] == c)
