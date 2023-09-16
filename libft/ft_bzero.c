@@ -6,7 +6,7 @@
 /*   By: miheider <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 13:51:31 by miheider          #+#    #+#             */
-/*   Updated: 2023/09/15 10:15:35 by miheider         ###   ########.fr       */
+/*   Updated: 2023/09/16 16:21:53 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,9 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	(unsigned char *)ft_memset(s, '\0', n);
+	unsigned char	*x;
+
+	x = (unsigned char *)ft_memset(s, '\0', n);
 }
 
 /*
