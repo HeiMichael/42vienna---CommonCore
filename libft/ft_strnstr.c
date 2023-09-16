@@ -27,7 +27,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	if (ft_strlen(string) < a || len < a)
 		return (NULL);
 	i = 0;
-	while (i < len)
+	while (i < ((len - a) + 1) && string[i] != '\0')
 	{
 		if (string[i] == small[0])
 		{
@@ -56,3 +56,4 @@ int main(void)
 	printf("\n%s", strnstr(big, little, len));
 	return (0);
 }*/
+
