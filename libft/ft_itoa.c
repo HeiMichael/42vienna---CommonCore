@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static char *ft_translate(char *str, int num, int len_n)
+static char     *ft_translate(char *str, int num, int len_n)
 {
     while ((len_n) >= 1)
     {

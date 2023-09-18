@@ -11,6 +11,19 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+#include <string.h>
+
+static char	*test(char const *s1, char const *s2)
+{
+	if (!s1 && !s2)
+		return (NULL);
+	if (s1 && !s2)
+		return (strdup(s1));
+	if (!s1 && s2)
+		return (strdup(s2));
+	return (0);
+}
 
 char	*ft_strjoin(char const *s1, char const *s2)
 {
@@ -18,13 +31,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	unsigned int	j;
 	char			*reserved;
 
-	if (!s1 && !s2)
-		return (NULL);
-	if (s1 && ! s2)
-		return (ft_strdup(s1));
-	if (!s1 && s2)
-		return (ft_strdup(s2));
-	reserved = (char *)malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2)) + 1));
+	test (s1, s2);
+	reserved = (char *)malloc(sizeof(char) * ((strlen(s1) + strlen(s2)) + 1));
 	if (NULL == reserved)
 		return (NULL);
 	i = 0;
