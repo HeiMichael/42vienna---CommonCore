@@ -71,12 +71,16 @@ char	*ft_strtrim(char const *s1, char const *set)
 	t1 = (char *)s1;
 	trim = (char *)set;
 	if (!*t1)
-	
-		return (t1);
+	{
+		res = (char *)malloc(sizeof(char) * (1));
+		res = '\0';
+		return (res);
+	}
 	if (!*trim)
 	{
-		res = malloc(sizeof(char) * (1));
-		return (ft_strdup(s1));
+		res = (char *)malloc(sizeof(char) * (ft_strlen(t1) + 1));
+		res = t1;
+		return (res);
 	}
 	t1 = begin(t1, trim);
 	t1_len = ft_strlen(t1);
@@ -84,7 +88,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	res = malloc(sizeof(char) * (i + 2));
 	if (res == NULL)
 		return (NULL);
-	ft_strlcpy(res, t1, i);
+	ft_strlcpy(res, t1, i + 2);
 	res[i + 1] = '\0';
 	return (res);
 }
@@ -92,8 +96,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 #include <stdio.h>
 int main(void)
 {
-    char s1[] = "   \t  \n\n \t\t  \n\n\nHello \t  Please\n Trim me !\n   \n \n \t\t\n  ";
-    char set[] = " \n\t";
+    char s1[] = "";
+    char set[] = "";
 
     printf("%s", ft_strtrim(s1, set));
     return 0;
