@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static char    *ft_translate(char *str, int num, int len_n)
+static char *ft_translate(char *str, int num, int len_n)
 {
     while ((len_n) >= 1)
     {
@@ -23,7 +23,7 @@ static char    *ft_translate(char *str, int num, int len_n)
     return (str);
 }
 
-static int    length(int n, int len_n)
+static int  length(int n, int len_n)
 {
     while (n > 9)
     {
@@ -35,9 +35,10 @@ static int    length(int n, int len_n)
 
 char    *ft_itoa(int n)
 {
-    int        sign;
-    long long int    num;
-    int        len_n;
+    int     sign;
+    long    long 
+    int     num;
+    int     len_n;
     char    *str;
     
     num = n;
@@ -45,7 +46,7 @@ char    *ft_itoa(int n)
     if (num == -2147483648)
     {    
         str = malloc(sizeof(char) * 12);
-		if (NULL == str)
+        if (NULL == str)
 			return (NULL);        
         ft_strlcpy (str, "-2147483648", 12);
         return (str);

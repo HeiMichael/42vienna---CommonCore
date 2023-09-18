@@ -11,6 +11,11 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
+#include <string.h>
+#include <stdlib.h>
+#include <stddef.h>
+
 
 static char	freeall(char **table, int counter)
 {
@@ -43,7 +48,7 @@ static char	**setarray(char *str, char **table, char c, int i)
 		while (str[i] != c && str[i] != '\0')
 			i++;
 		table[j] = malloc(sizeof(char) * (i + 1));
-		if (!table[j])
+		if (table[j] == NULL)
 		{
 			freeall(table, j);
 			return (0);
@@ -63,29 +68,33 @@ static char	**setarray(char *str, char **table, char c, int i)
 
 static int	word_count(char *str, char c)
 {
-	int		j;
 	int		i;
+	int count;
 
-	j = 0;
-	i = (ft_strlen(str) - 1);
+	i = (strlen(str) - 1);
 	while (str[i] == c)
 		str[i--] = '\0';
 	i = 0;
-	while (str[i] != '\0')
-	{
-		if (str[i] == c)
-		{
-			if (str[i] == str[i - 1])
-				i++;
-			else
-			{
-				i++;
-				j++;
-			}
-		}
-		i++;
-	}
-	return (j);
+	    {
+        count = 0;
+        int i = 0;
+        while (str[i] != '\0')
+        {
+            if (str[i] != c)
+            {
+                count++;
+                while (str[i] != '\0' && str[i] != c)
+                {
+                    i++;
+                }
+            }
+            else
+            {
+                i++;
+            }
+        }
+        return (count);
+    }
 }
 
 char	**ft_split(char const *s, char c)
@@ -95,7 +104,9 @@ char	**ft_split(char const *s, char c)
 	int		i;
 	int		j;
 
-	if (!s || !*s)
+	if (c == '\0')
+      return (NULL);
+	if ((!s || !*s) && c == '\0')
 		return (NULL);
 	str = (char *)s;
 	i = 0;
@@ -103,7 +114,7 @@ char	**ft_split(char const *s, char c)
 		i++;
 	str = &str[i];
 	j = word_count(str, c);
-	table = malloc(sizeof(char **) * (j + 2));
+	table = (char **)malloc(sizeof(char *) * (j + 1));
 	if (!table)
 	{
 		free(table);
@@ -114,15 +125,12 @@ char	**ft_split(char const *s, char c)
 	return (table);
 }
 
+
 /*
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <stddef.h>
 int	main(void)
 {
-	char	b[] = " Oida, waruuuuum     tust du  das   ?   ";
-	char	c = ' ';
+	char	b[] = "\0aa\0bbb";
+	char	c = '\0';
 	char	**result = (char **)ft_split(b, c);
 	int		a;
 	int		count;
