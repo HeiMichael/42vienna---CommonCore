@@ -44,7 +44,9 @@ char    *ft_itoa(int n)
     sign = 0;
     if (num == -2147483648)
     {    
-        str = malloc(sizeof(char) * 12);        
+        str = malloc(sizeof(char) * 12);
+		if (NULL == str)
+			return (NULL);        
         ft_strlcpy (str, "-2147483648", 12);
         return (str);
     }
