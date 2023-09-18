@@ -102,4 +102,3 @@ int main(void)
     printf("%s", ft_strtrim(s1, set));
     return 0;
 }*/
-tttttt
