@@ -92,8 +92,8 @@ char	*ft_strtrim(char const *s1, char const *set)
 #include <stdio.h>
 int main(void)
 {
-    char s1[] = "caabc.www.sdeaaaacbba";
-    char set[] = "abc";
+    char s1[] = "   \t  \n\n \t\t  \n\n\nHello \t  Please\n Trim me !\n   \n \n \t\t\n  ";
+    char set[] = " \n\t";
 
     printf("%s", ft_strtrim(s1, set));
     return 0;
