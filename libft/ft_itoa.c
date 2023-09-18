@@ -58,7 +58,7 @@ char	*ft_itoa(int n)
 	str = (char *)malloc(sizeof(char) * (len_n + 2));  //+1 potential sign, +1 for '\0'
 	if (!str)
 		return (NULL);
-	str[len_n] = '\0';
+	str[len_n + 1] = '\0';
 	str = ft_translate(str, num, len_n);
 	if (sign == 1)
 		str[0] = '-';
