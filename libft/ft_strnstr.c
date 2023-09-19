@@ -24,7 +24,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	if (*small == '\0')
 		return (string);
 	a = ft_strlen(small);
-	if (ft_strlen(string) < a || len < a || a == 0)
+	if (ft_strlen(string) < a || len <= 0 || a == 0)
 		return (NULL);
 	i = 0;
 	while ((i <= (len - a)) && string[i] != '\0')
