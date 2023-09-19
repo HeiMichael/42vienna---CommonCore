@@ -12,6 +12,7 @@
 
 #include "libft.h"
 
+
 static char	*begin(char *t1, char *set)
 {
 	int		i;
@@ -44,7 +45,7 @@ static int	end(char *t1, char *set, int t1_len)
 
 	set_len = ft_strlen(set);
 	i = t1_len - 1;
-	while (i >= 0)
+	while (i > 0)
 	{
 		j = 0;
 		while (set[j] && t1[i] != set[j])
@@ -73,13 +74,12 @@ char	*ft_strtrim(char const *s1, char const *set)
 
 	t1 = (char *)s1;
 	trim = (char *)set;
-
-	if (!*t1)
+	if (!*set || !*s1)
 	{
-		res = (char *)malloc(sizeof(char) * 1);
+		res = malloc(sizeof(char) * (ft_strlen(s1) + 1));
 		if (!res)
 			return (NULL);
-		res[0] = '\0';
+		ft_strlcpy(res, s1, ft_strlen(s1) + 2);
 		return (res);
 	}
 	t1 = begin(t1, trim);
@@ -98,9 +98,9 @@ char	*ft_strtrim(char const *s1, char const *set)
 #include <stdio.h>
 int main(void)
 {
-    char s1[] = "";
-    char set[] = "";
+    char s1[] = "   xxx   xxx";
+    char set[] = " x";
 
-    printf("%s", ft_strtrim(s1, set));
+    printf("output: %s", ft_strtrim(s1, set));
     return 0;
 }*/
