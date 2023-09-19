@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-char	*begin(char *t1, char *set)
+static char	*begin(char *t1, char *set)
 {
 	int		i;
 	int		j;
@@ -36,7 +36,7 @@ char	*begin(char *t1, char *set)
 	return (0);
 }
 
-int	end(char *t1, char *set, int t1_len)
+static int	end(char *t1, char *set, int t1_len)
 {
 	int		i;
 	int		j;
@@ -57,7 +57,7 @@ int	end(char *t1, char *set, int t1_len)
 			return (i);
 		i--;
 	}
-	return (0);
+	return (-1);
 }
 
 char	*ft_strtrim(char const *s1, char const *set)
@@ -68,23 +68,25 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int		t1_len;
 	char	*res;
 
+	if (!s1 || !set)
+		return (NULL);
+
 	t1 = (char *)s1;
 	trim = (char *)set;
-	if (t1[0] == '\0')
+
+	if (!*t1)
 	{
-		res = (char *)malloc(sizeof(char) * (1));
-		res = '\0';
-		return (ft_strdup(res));
-	}
-	if (trim == NULL)
-	{
-		res = (char *)malloc(sizeof(char) * (ft_strlen(t1) + 1));
+		res = (char *)malloc(sizeof(char) * 1);
+		if (!res)
+			return (NULL);
 		res[0] = '\0';
-		return (ft_strdup(s1));
+		return (res);
 	}
 	t1 = begin(t1, trim);
 	t1_len = ft_strlen(t1);
 	i = end(t1, trim, t1_len);
+	if (i == -1)
+		return (NULL);
 	res = malloc(sizeof(char) * (i + 2));
 	if (res == NULL)
 		return (NULL);

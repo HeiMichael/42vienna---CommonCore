@@ -43,6 +43,7 @@ static char	**setarray(char *str, char **table, char c, int i)
 	int		j;
 
 	j = 0;
+	i = 0;
 	while (*str != '\0')
 	{
 		while (str[i] != c && str[i] != '\0')
