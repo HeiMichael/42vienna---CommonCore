@@ -106,7 +106,14 @@ char	**ft_split(char const *s, char c)
 	int		j;
 
 	if (c == '\0')
-      return (NULL);
+	{
+		table = (char **)malloc(sizeof(char *));
+		if(!table)
+			return(NULL);
+		table[0] = NULL;
+		return(table);
+	}
+    str = ft_strdup(s);  
 	if ((!s || !*s) && c == '\0')
 		return (NULL);
 	str = ft_strdup(s);
