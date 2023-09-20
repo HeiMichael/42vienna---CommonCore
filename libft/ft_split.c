@@ -89,7 +89,7 @@ char	**ft_split(char const *s, char c)
 	table = setarray(s, table, c);
 	return (table);
 }
-
+/*
 int	main(void)
 {
 	char	**result = ft_split("tripouille", 0);
@@ -104,4 +104,4 @@ int	main(void)
 		free(result[i++]);
     free(result);
 	return (0);
-}
+}*/
