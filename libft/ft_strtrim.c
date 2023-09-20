@@ -20,7 +20,7 @@ char    *ft_strtrim(char const *s1, char const *set)
       return (ft_strdup(t1) + (t1_len - 1) + 1);
     while ((t1_len - 1) > 0 && (ft_strchr(set, t1[t1_len - 1])))
         t1_len--;
-    str = malloc((t1_len - 1) - i + 2);
+    str = malloc(t1_len - i + 1);
     if (str == NULL)
       return (NULL);
     ft_strlcpy(str, &s1[i], (t1_len - 1) - i + 2);
