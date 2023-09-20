@@ -17,10 +17,10 @@ static void	freeall(char **table, int counter) // 8
 {
 	while (counter >= 0)
 	{
-		free (table[counter]);
+		free(table[counter]);
 		counter--;
 	}
-	free (table);
+	free(table);
 }
 
 static char	**setarray(char const *str, char **table, char c)
@@ -30,7 +30,7 @@ static char	**setarray(char const *str, char **table, char c)
 
 	j = 0;
 	while (*str != '\0')
-	{	
+	{
 		i = 0;
 		while (str[i] != c && str[i] != '\0')
 			i++;
@@ -48,25 +48,24 @@ static char	**setarray(char const *str, char **table, char c)
 
 static int	word_count(char const *str, char c)
 {
-	int		i;
-	int count;
+	int	i;
+	int	count;
 
-    count = 0;
-    i = 0;
-    while (str[i] != '\0')
-    {
-        if (str[i] != c)
-        {
-            count++;
-            while (str[i] != '\0' && str[i] != c)
-                i++;
-        }
-        else
-            i++;
-    }
-    return (count);
+	count = 0;
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] != c)
+		{
+			count++;
+			while (str[i] != '\0' && str[i] != c)
+				i++;
+		}
+		else
+			i++;
+	}
+	return (count);
 }
-
 
 char	**ft_split(char const *s, char c)
 {
@@ -85,7 +84,7 @@ char	**ft_split(char const *s, char c)
 	{
 		table[0] = NULL;
 		return (table);
-	}		
+	}
 	table = setarray(s, table, c);
 	return (table);
 }
@@ -94,7 +93,7 @@ int	main(void)
 {
 	char	**result = ft_split("tripouille", 0);
 	int i = 0;
-    while (i < 3)
+	while (i < 3)
 		printf("{%s} ", result[i++]);
 	// while (result[i])
 		// printf("{%s} ", result[i++]);
@@ -102,6 +101,6 @@ int	main(void)
 	i = 0;
 	while (result[i])
 		free(result[i++]);
-    free(result);
+	free(result);
 	return (0);
 }*/
