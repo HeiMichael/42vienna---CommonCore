@@ -31,7 +31,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	unsigned int	j;
 	char			*reserved;
 
-	test (s1, s2);
+	test(s1, s2);
 	reserved = malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2)) + 1));
 	if (NULL == reserved)
 		return (NULL);
@@ -52,10 +52,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (reserved);
 }
 /*
-int main(void)
+int	main(void)
 {
 	char text1[] = "Warum";
 	char text2[] = "machst du das?";
 	printf("%s", ft_strjoin(text1, text2));
-	return 0;
+	return (0);
 }*/
