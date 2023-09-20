@@ -13,7 +13,7 @@
 #include "libft.h"
 #include <stdio.h>
 
-static void	freeall(char **table, int counter) // 8
+static void	freeall(char **table, int counter)
 {
 	while (counter >= 0)
 	{

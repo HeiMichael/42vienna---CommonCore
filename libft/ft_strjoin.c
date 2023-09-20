@@ -32,7 +32,8 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	char			*reserved;
 
 	test (s1, s2);
-	reserved = (char *)malloc(sizeof(char) * ((ft_strlen(s1) + ft_strlen(s2)) + 1));
+	reserved = (char *)malloc(sizeof(char) * ((ft_strlen(s1) + 
+							ft_strlen(s2)) + 1));
 	if (NULL == reserved)
 		return (NULL);
 	i = 0;
