@@ -20,8 +20,7 @@ typedef struct s_list
 
 t_list	*ft_lstnew(void *content)
 {
-	t_list *new_node
-		new_node = (t_list *)malloc(sizeof(*new_node)) if (new_node = NULL) return ;
+	t_list *new_node new_node = (t_list *)malloc(sizeof(*new_node)) if (new_node = NULL) return ;
 	new_node->next = NULL; // Abfrage if(start==NULL)???????????
 	new_node->content = content;
 }
