@@ -109,7 +109,7 @@ char	**ft_split(char const *s, char c)
       return (NULL);
 	if ((!s || !*s) && c == '\0')
 		return (NULL);
-	str = (char *)s;
+	str = ft_strdup(s);
 	i = 0;
 	while (str[i] == c)
 		i++;
