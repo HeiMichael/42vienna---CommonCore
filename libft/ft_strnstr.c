@@ -15,26 +15,24 @@
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
 	char	*string;
-	char	*small;
 	size_t	i;
 	size_t	a;
 
 	string = (char *)big;
-	small = (char *)little;
-	if (*small == '\0')
+	if (*little == '\0')
 		return (string);
-	a = ft_strlen(small);
+	a = ft_strlen(little);
 	if (ft_strlen(string) < a || len <= 0 || a == 0)
 		return (NULL);
 	i = 0;
 	while (((i + a) <= len) && string[i] != '\0')
 	{
-		if (string[i] == small[0])
+		if (string[i] == little[0])
 		{
 			string = &string[i];
-			if (ft_strncmp(string, small, a) == 0)
+			if (ft_strncmp(string, little, a) == 0)
 				return (string);
-			else if (ft_strncmp(string, small, a) != 0)
+			else if (ft_strncmp(string, little, a) != 0)
 				i++;
 		}
 		else
