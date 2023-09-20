@@ -25,7 +25,7 @@ SRCS=ft_isprint.c ft_isalpha.c ft_isdigit.c ft_strjoin.c ft_strlen.c \
 OBJS=$(SRCS:.c=.o)
 
 CC=cc
-CFLAGS=-Wall -Wextra -Werror
+CFLAGS=-Wall -Wextra -Werror -g
 RM=rm -rf 
 
 all: $(NAME)

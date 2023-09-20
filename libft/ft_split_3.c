@@ -12,6 +12,17 @@
 
 #include "libft.h"
 
+char	*free_all(char **list, int number)
+{
+	int	i;
+
+	i = -1;
+	while (++i < number)
+		free(list[i]);
+	free(list);
+	return (NULL);
+}
+
 char	*word(char *s, char c, char **list, int number)
 {
 	char	*out;
@@ -41,10 +52,6 @@ static int	wordcount(char *str, char c)
 			return (0);
 	return (count + 1);
  }
-
-
-
-
 
 char    **ft_split(char const *s, char c)
 {
