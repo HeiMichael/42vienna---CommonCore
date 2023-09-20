@@ -11,11 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
-#include <stdlib.h>
-#include <stddef.h>
-
 
 static char	freeall(char **table, int counter)
 {
@@ -72,7 +67,7 @@ static int	word_count(char *str, char c)
 	int		i;
 	int count;
 
-	i = (strlen(str) - 1);
+	i = (ft_strlen(str) - 1);
 	while (str[i] == c)
 		str[i--] = '\0';
 	i = 0;
@@ -105,7 +100,7 @@ char	**ft_split(char const *s, char c)
 	int		i;
 	int		j;
 
-	if (c == '\0')
+	if (c == '\0' && s[0] == '\0')
 	{
 		table = (char **)malloc(sizeof(char *));
 		if(!table)
@@ -114,9 +109,8 @@ char	**ft_split(char const *s, char c)
 		return(table);
 	}
     str = ft_strdup(s);  
-	if ((!s || !*s) && c == '\0')
+	if (!str)
 		return (NULL);
-	str = ft_strdup(s);
 	i = 0;
 	while (str[i] == c)
 		i++;
@@ -132,18 +126,18 @@ char	**ft_split(char const *s, char c)
 	table = (char **)setarray(str, table, c, i);
 	return (table);
 }
-
 /*
+#include <stdio.h>
 int	main(void)
 {
-	char	b[] = "\0aa\0bbb";
-	char	c = '\0';
+	char	b[] = "--1-2--3---4----5-----42";
+	char	c = '-';
 	char	**result = (char **)ft_split(b, c);
 	int		a;
 	int		count;
 
 	a = 0;
-		while (result[0][a] != '\0')
+		while (result[2][a] != '\0')
 		{
 			printf("%c", result[0][a]);
 			a++;
