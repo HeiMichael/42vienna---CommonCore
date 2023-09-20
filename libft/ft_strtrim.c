@@ -16,8 +16,8 @@ char    *ft_strtrim(char const *s1, char const *set)
     i = 0;
     while (i <= (t1_len - 1) && ft_strchr(set, t1[i]))
             i++;
-    if (i > t1_len) 
-      return (ft_strdup(t1) + (t1_len - 1) + 1); 
+    if (i >= t1_len) 
+      return ft_strdup(""); 
     while ((t1_len - 1) > 0 && (ft_strchr(set, t1[t1_len - 1])))
         t1_len--;
     str = malloc(sizeof(char) * ((t1_len - 1) - i + 2));
