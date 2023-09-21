@@ -36,19 +36,13 @@ static int	length(int n, int len_n)
 	return (len_n);
 }
 
-static char	*check_intmin(int num)
+static char	*check_intmin(char *str)
 {
-	char	*str;
-
-	if (num == -2147483648)
-	{
 		str = malloc(sizeof(char) * 12);
 		if (NULL == str)
 			return (0);
 		ft_strlcpy(str, "-2147483648", 12);
 		return (str);
-	}
-	return (0);
 }
 
 static void	signer(long long int *num, int n, int *sign)
@@ -65,9 +59,8 @@ char	*ft_itoa(int n)
 	char			*str;
 
 	signer(&num, n, &sign);
-	str = check_intmin(num);
-	if (str != 0)
-		return (str);
+	if (n == -2147483648)
+		return (check_intmin("-2147483648"));
 	len_n = 1;
 	if (n < 0)
 	{
