@@ -12,19 +12,18 @@
 
 #include "libft.h"
 
-typedef struct s_list
-{
-	void			*content;
-	struct s_list	*next;
-} t_list;
-
 t_list	*ft_lstnew(void *content)
 {
-	t_list *new_node new_node = (t_list *)malloc(sizeof(*new_node)) if (new_node == NULL) return ;
+	t_list	*new_node;
+
+	new_node = (t_list *)malloc(sizeof(*new_node));
+	if (new_node == NULL)
+		return (NULL);
 	new_node->next = NULL;
 	new_node->content = content;
+	return (new_node);
 }
-
+/*
 int	main(void)
 {
-}
+}*/

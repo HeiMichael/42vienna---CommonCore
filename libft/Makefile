@@ -20,9 +20,12 @@ SRCS=ft_isprint.c ft_isalpha.c ft_isdigit.c ft_strjoin.c ft_strlen.c \
 	 ft_memchr.c ft_strdup.c ft_strlcpy.c ft_strlcat.c ft_memcmp.c ft_strncmp.c \
 	 ft_strnstr.c ft_atoi.c ft_strtrim.c ft_putchar_fd.c ft_putstr_fd.c \
 	 ft_putendl_fd.c ft_putnbr_fd.c ft_split.c ft_striteri.c ft_strmapi.c \
-	 ft_itoa.c ft_substr.c
+	 ft_itoa.c ft_substr.c 
+
+B_SRCS=ft_lstnew.c ft_lstsize.c ft_lstadd_front.c
 
 OBJS=$(SRCS:.c=.o)
+B_OBJS=$(B_SRCS:.c=.o)
 
 CC=cc
 CFLAGS=-Wall -Wextra -Werror -g
@@ -32,6 +35,10 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(AR) -r $@ $?
+
+bonus: $(OBJS) $(B_OBJS)
+	$(AR) -r $(NAME) $?
+
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
@@ -45,4 +52,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY: clean, fclean, re
+.PHONY: clean, fclean, re, bonus
