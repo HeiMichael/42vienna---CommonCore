@@ -12,14 +12,17 @@
 
 #include "libft.h"
 
-static char	*ft_translate(char *str, int num, int len_n)
+static char	*ft_translate(char *str, int num, int len_n, int sign)
 {
+	str[len_n] = '\0';
 	while ((len_n) >= 1)
 	{
 		str[len_n - 1] = (num % 10) + '0';
 		num /= 10;
 		len_n--;
 	}
+	if (sign == 1)
+		str[0] = '-';
 	return (str);
 }
 
@@ -33,6 +36,27 @@ static int	length(int n, int len_n)
 	return (len_n);
 }
 
+static char	*check_intmin(int num)
+{
+	char	*str;
+
+	if (num == -2147483648)
+	{
+		str = malloc(sizeof(char) * 12);
+		if (NULL == str)
+			return (0);
+		ft_strlcpy(str, "-2147483648", 12);
+		return (str);
+	}
+	return (0);
+}
+
+static void	signer(long long int *num, int n, int *sign)
+{
+	*num = n;
+	*sign = 0;
+}
+
 char	*ft_itoa(int n)
 {
 	int				sign;
@@ -40,16 +64,10 @@ char	*ft_itoa(int n)
 	int				len_n;
 	char			*str;
 
-	num = n;
-	sign = 0;
-	if (num == -2147483648)
-	{
-		str = malloc(sizeof(char) * 12);
-		if (NULL == str)
-			return (NULL);
-		ft_strlcpy(str, "-2147483648", 12);
+	signer(&num, n, &sign);
+	str = check_intmin(num);
+	if (str != 0)
 		return (str);
-	}
 	len_n = 1;
 	if (n < 0)
 	{
@@ -62,10 +80,7 @@ char	*ft_itoa(int n)
 	str = (char *)malloc(sizeof(char) * (len_n + 1));
 	if (!str)
 		return (NULL);
-	str[len_n] = '\0';
-	str = ft_translate(str, num, len_n);
-	if (sign == 1)
-		str[0] = '-';
+	str = ft_translate(str, num, len_n, sign);
 	return (str);
 }
 
