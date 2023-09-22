@@ -23,7 +23,3 @@ t_list	*ft_lstnew(void *content)
 	new_node->content = content;
 	return (new_node);
 }
-/*
-int	main(void)
-{
-}*/

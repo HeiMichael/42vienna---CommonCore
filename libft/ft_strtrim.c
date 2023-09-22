@@ -36,11 +36,14 @@ char	*ft_strtrim(char const *s1, char const *set)
 	ft_strlcpy(str, &s1[i], (t1_len - 1) - i + 2);
 	return (str);
 }
-/*
-int	main(void)
-{
-char	a[] = "xxxxxkjhzgzgxxxxx";
-char	b[] = "x";
 
-printf("output: %s", ft_strtrim(a, b));
+/*
+#include <stdio.h>
+int main(void)
+{
+    char s1[] = "";
+    char set[] = "";
+
+    printf("%s", ft_strtrim(s1, set));
+    return 0;
 }*/

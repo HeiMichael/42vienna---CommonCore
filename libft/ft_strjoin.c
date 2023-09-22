@@ -11,8 +11,6 @@
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <stdio.h>
-#include <string.h>
 
 static char	*test(char const *s1, char const *s2)
 {
@@ -52,10 +50,10 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	return (reserved);
 }
 /*
-int	main(void)
+int main(void)
 {
 	char text1[] = "Warum";
 	char text2[] = "machst du das?";
 	printf("%s", ft_strjoin(text1, text2));
-	return (0);
+	return 0;
 }*/

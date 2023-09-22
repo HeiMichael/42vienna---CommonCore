@@ -30,14 +30,6 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	return (str);
 }
 
-char	upper(unsigned int i, char s)
-{
-	s = s + 32;
-	i++;
-	i--;
-	return (s);
-}
-
 /*
 #include <string.h>
 #include <stdlib.h>

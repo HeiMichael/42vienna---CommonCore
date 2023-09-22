@@ -14,17 +14,12 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	(unsigned char *)ft_memset(s, '\0', n);
+	unsigned char	*x;
+
+	x = (unsigned char *)s;
+	while (n > 0)
+	{
+		*x++ = '\0';
+		n--;
+	}
 }
-
-/*
-#include <stdio.h>
-#include <string.h>
-int main(void)
-{
-	char s[] = "AT89 5525 2255 3545 7452";
-	size_t n = 20;
-
-	ft_bzero(s, n);
-	return (0);
-}*/

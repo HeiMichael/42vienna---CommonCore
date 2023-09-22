@@ -23,20 +23,3 @@ void	*ft_calloc(size_t nmemb, size_t size)
 		ft_memset(a, 0, (nmemb * size));
 	return (a);
 }
-
-/*
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
-int main(void)
-{
-	size_t	nmemb;
-	size_t	size;
-	int	*d;
-
-	nmemb = 7;
-	size = sizeof(int);
-
-	d = ft_calloc(nmemb, size);
-	return (0);
-}*/

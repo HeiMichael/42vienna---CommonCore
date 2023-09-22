@@ -37,15 +37,3 @@ int	ft_atoi(const char *nptr)
 	}
 	return (sign * x);
 }
-
-/*
-#include <stdlib.h>
-#include <stdio.h>
-int main(void)
-{
-	char	a[] = "     +3 4635dfsh";
-
-	printf("%d\n", ft_atoi(a));
-	printf("%d", atoi(a));
-	return (0);
-}*/

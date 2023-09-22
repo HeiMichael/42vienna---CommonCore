@@ -18,17 +18,3 @@ int	ft_isalnum(int c)
 		return (8);
 	return (0);
 }
-
-/*
-#include<ctype.h>
-#include<stdio.h>
-int main(void)
-{
-	char	b;
-
-	b = '?';
-
-	printf("%d", ft_isalnum(b));
-	return (0);
-	
-}*/
