@@ -6,7 +6,7 @@
 #    By: miheider <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/13 11:49:47 by miheider          #+#    #+#              #
-#    Updated: 2023/09/22 19:51:57 by miheider         ###   ########.fr        #
+#    Updated: 2023/09/23 10:46:33 by miheider         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ SRCS=ft_isprint.c ft_isalpha.c ft_isdigit.c ft_strjoin.c ft_strlen.c \
 	 ft_itoa.c ft_substr.c 
 
 B_SRCS=ft_lstnew.c ft_lstsize.c ft_lstadd_front.c ft_lstlast.c ft_lstadd_back.c \
-	   ft_lstdelone.c ft_lstclear.c
+	   ft_lstdelone.c ft_lstclear.c ft_lstiter.c
 
 OBJS=$(SRCS:.c=.o)
 B_OBJS=$(B_SRCS:.c=.o)
