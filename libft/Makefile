@@ -6,7 +6,7 @@
 #    By: miheider <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/09/13 11:49:47 by miheider          #+#    #+#              #
-#    Updated: 2023/09/23 10:46:33 by miheider         ###   ########.fr        #
+#    Updated: 2023/09/23 12:54:37 by miheider         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,8 +51,4 @@ fclean: clean
 
 re: fclean all
 
-so:
-	$(CC) -c -fPIC $(CFLAGS) $(SRCS) $(B_SRCS)
-	gcc -shared -o libft.so $(OBJS) $(B_OBJS)
-
-.PHONY: clean, fclean, re, bonus, so
+.PHONY: clean, fclean, re, bonus
