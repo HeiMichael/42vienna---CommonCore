@@ -6,7 +6,7 @@
 /*   By: miheider <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/06 09:51:29 by miheider          #+#    #+#             */
-/*   Updated: 2023/09/16 11:57:50 by miheider         ###   ########.fr       */
+/*   Updated: 2023/09/23 10:17:09 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,22 @@
 
 char	*ft_strrchr(const char *s, int c)
 {
-	int	a;
-	int	b;
+	int				a;
+	unsigned char	*str;
 
-	b = ft_strlen(s);
-	a = (b - 1);
+	str = (unsigned char *)s;
+	a = 0;
+	while (str[a])
+		a++;
 	while (a >= 0)
 	{
-		if (s[a] == (char)c)
+		if (str[a] == (unsigned char)c)
 		{
-			return ((char *)&s[a]);
+			return ((char *)&str[a]);
 		}
 		a--;
 	}
-	if (s[a] == (char)c)
-		return ((char *)s + b);
-	return (NULL);
+	return (0);
 }
 
 /*
@@ -38,7 +38,7 @@ char	*ft_strrchr(const char *s, int c)
 int main(void)
 {
 	char str[] = "xwww.wassolldas.at";
-	int c = 'x';
+	int c = 'd';
 
 	printf("%s", ft_strrchr(str, c));
 	return (0);

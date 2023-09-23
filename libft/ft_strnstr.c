@@ -6,7 +6,7 @@
 /*   By: miheider <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/07 15:36:41 by miheider          #+#    #+#             */
-/*   Updated: 2023/09/15 10:38:54 by miheider         ###   ########.fr       */
+/*   Updated: 2023/09/23 09:59:34 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,31 +14,29 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	char	*string;
-	size_t	i;
+	size_t	length;
 	size_t	a;
+	size_t	b;
 
-	string = (char *)big;
 	if (*little == '\0')
-		return (string);
-	a = ft_strlen(little);
-	if (ft_strlen(string) < a || len <= 0 || a == 0)
-		return (NULL);
-	i = 0;
-	while (((i + a) <= len) && string[i] != '\0')
+		return ((char *)big);
+	length = 0;
+	while (little[length] != '\0')
+		length++;
+	a = 0;
+	while ((a < len) && big[a])
 	{
-		if (string[i] == little[0])
+		if (big[a] == little[0])
 		{
-			string = &string[i];
-			if (ft_strncmp(string, little, a) == 0)
-				return (string);
-			else if (ft_strncmp(string, little, a) != 0)
-				i++;
+			b = 0;
+			while ((b < length && (big[a + b]) == little[b]) && (a + b < len))
+				b++;
+			if (b == length)
+				return ((char *)&big[a]);
 		}
-		else
-			i++;
+		a++;
 	}
-	return (0);
+	return (NULL);
 }
 
 /*
