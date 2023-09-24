@@ -31,16 +31,3 @@ char	*ft_strdup(const char *s)
 	dupl[i] = '\0';
 	return (dupl);
 }
-
-/*
-#include <string.h>
-#include <stdio.h>
-#include <stdlib.h>
-int main(void)
-{
-	char source[] = "GeeksForGeeks";
-    char* target = ft_strdup(source);
- 
-    printf("%s", target);
-    return (0);
-}*/

@@ -23,10 +23,3 @@ size_t	ft_strlen(const char *s)
 		a++;
 	return (a);
 }
-/*
-int main(void)
-{
-	char	a[];
-	
-	printf("%d", "What is going on!");
-}*/

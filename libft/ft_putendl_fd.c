@@ -24,11 +24,3 @@ void	ft_putendl_fd(char *s, int fd)
 	}
 	write(fd, "\n", 1);
 }
-/*
-int	main(void)
-{
-	char	a[] = "Wos is mit dir?";
-
-	ft_putendl_fd(a, 1);
-	return (0);
-}*/

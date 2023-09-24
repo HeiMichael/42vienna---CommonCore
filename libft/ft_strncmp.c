@@ -29,20 +29,3 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 	return (0);
 }
-
-/*
-#include <string.h>
-#include <stdio.h>
-int main(void)
-{
-	char	a[] = "Was geht mit dir?";
-	char	b[] = "Was geht?";
-	int		num;
-
-	num = 343;
-
-	printf("%d\n", ft_strncmp(a, b, num));
-	printf("%d", strncmp(a, b, num));
-	return (0);
-
-}*/

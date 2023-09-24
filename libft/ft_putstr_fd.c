@@ -23,12 +23,3 @@ void	ft_putstr_fd(char *s, int fd)
 		i++;
 	}
 }
-/*
-int main(void)
-{
-	char	a[] = "Jooo, wir san min Radl do!";
-
-	ft_putstr_fd(a, 1);
-	return (0);
-
-}*/

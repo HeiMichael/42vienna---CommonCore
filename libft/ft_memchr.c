@@ -29,22 +29,3 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
-
-/*
-#include <string.h>
-#include <stdio.h>
-int main(void)
-{
-	char	a[] = "Was geht?";
-	int		b = 'h';
-	size_t	c = 12;
-	char	*d;
-
-	d = ft_memchr(a, b, c);
-	printf("%s", d);
-
-
-	return (0);
-
-
-}*/

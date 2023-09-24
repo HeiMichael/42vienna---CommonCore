@@ -26,16 +26,3 @@ void	*ft_memset(void *s, int c, size_t n)
 	}
 	return (s);
 }
-
-/*
-#include <string.h>
-#include <stdio.h>
-int main(void)
-{
-	char str[] = "AT41 2548 9651 2365 7456";
-	int	c = 'x';
-	size_t n = 15;
-
-	printf("%s", (unsigned char *)ft_memset(str, c, n));
-	return (0);
-}*/

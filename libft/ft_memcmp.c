@@ -29,21 +29,3 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
-
-/*
-#include <string.h>
-#include <stdio.h>
-
-int main(void)
-{
-	char	a[] = "Wieso nur?";
-	char	b[] = "Wieso nur?";
-	int		i;
-
-	i = 356;
-
-	printf("%d", ft_memcmp(a, b, i));
-	printf("\n%d", memcmp(a, b, i));
-
-	return (0);
-}*/

@@ -38,18 +38,3 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 	}
 	return (NULL);
 }
-
-/*
-#include <bsd/string.h>
-#include <stdio.h>
-#include <string.h>
-int main(void)
-{
-	char big[] = "aaabcabcd";
-	char little[] = "abcd";
-	int	len = 9;
-
-	printf("%s", ft_strnstr(big, little, len));
-	printf("\n%s", strnstr(big, little, len));
-	return (0);
-}*/

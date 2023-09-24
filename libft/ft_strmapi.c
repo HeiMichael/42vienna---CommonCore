@@ -29,17 +29,3 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	str[i] = '\0';
 	return (str);
 }
-
-/*
-#include <string.h>
-#include <stdlib.h>
-#include <unistd.h>
-#include <stdio.h>
-int main(void)
-{
-	char	a[] = "WAS GEHT MIR DIR?";
-	char *str = ft_strmapi(a, upper);
-
-	printf("%s", str);
-	return (0);
-}*/

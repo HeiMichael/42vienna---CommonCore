@@ -31,19 +31,3 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 	dst[y] = '\0';
 	return (x);
 }
-
-/*
-#include <bsd/string.h>
-#include <stdio.h>
-int main(void)
-{
-	char	a[] = "";
-	char	b[] = "Naund!";
-	size_t	c = 4;
-
-	printf("%zu", ft_strlcpy(b, a, c));
-	printf("%s", b);
-	printf("%zu", strlcpy(b, a, c));
-	printf("%s", b);
-	return (0);
-}*/

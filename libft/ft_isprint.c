@@ -18,16 +18,3 @@ int	ft_isprint(int c)
 		return (16384);
 	return (0);
 }
-
-/*
-#include <ctype.h>
-#include <stdio.h>
-int main(void)
-{
-	char	a;
-
-	a = '-';
-
-	printf("%d", ft_isprint(a));
-	return (0);
-}*/

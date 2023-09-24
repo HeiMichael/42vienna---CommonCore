@@ -29,15 +29,3 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)&s[a]);
 	return (NULL);
 }
-
-/*
-#include <stdio.h>
-
-int main(void)
-{
-	char string[] = "www.wasgehtab.at";
-	char c = '#';
-
-	printf("%s", ft_strchr(string, c));
-	return (0);
-}*/

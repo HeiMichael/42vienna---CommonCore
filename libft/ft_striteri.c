@@ -25,20 +25,3 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 		i++;
 	}
 }
-/*
-void	ft_putchar(unsigned int i, char *s)
-{
-	write(1, &s[i], 1);
-}
-
-
-#include <string.h>
-#include <stdio.h>
-#include <unistd.h>
-int main(void)
-{
-	char	str[] = "das ist doof";
-
-	ft_striteri(str, ft_putchar);
-	return (0);
-}*/

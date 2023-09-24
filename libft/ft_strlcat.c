@@ -34,22 +34,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	dst[j] = '\0';
 	return (a + b);
 }
-
-/*
-#include <stdio.h>
-#include <bsd/string.h>
-#include <string.h>
-
-int main(void)
-{
-	char	a[] = "Wie soll das gehen?";
-	char	b[] = "Na ganz einfach!";
-	int		c;
-
-	c = 3;
-
-	printf("%zu", ft_strlcat(b, a, c));
-//	printf("%zu", strlcat(b, a, c));
-	printf("%s", b);
-	
-}*/

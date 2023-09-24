@@ -31,15 +31,3 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (0);
 }
-
-/*
-#include <stdio.h>
-#include <string.h>
-int main(void)
-{
-	char str[] = "xwww.wassolldas.at";
-	int c = 'd';
-
-	printf("%s", ft_strrchr(str, c));
-	return (0);
-}*/

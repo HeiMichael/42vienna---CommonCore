@@ -49,11 +49,3 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	reserved[i] = '\0';
 	return (reserved);
 }
-/*
-int main(void)
-{
-	char text1[] = "Warum";
-	char text2[] = "machst du das?";
-	printf("%s", ft_strjoin(text1, text2));
-	return 0;
-}*/

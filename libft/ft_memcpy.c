@@ -32,16 +32,3 @@ void	*ft_memcpy(void *dest, const void *src, size_t n)
 	}
 	return (d - n);
 }
-
-/*
-#include <string.h>
-#include <stdio.h>
-int main(void)
-{
-	char a[] = "Was ist nur los mit dir?";
-	char b[] = "Oida, das noch so spannend!";
-
-	printf("%s", (char *)ft_memcpy(b, a, 7));
-	
-	return (0);
-}*/

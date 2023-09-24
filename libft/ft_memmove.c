@@ -38,18 +38,3 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-
-/*
-#include <string.h>
-#include <stdio.h>
-int main(void)
-{
-	char	b[] = "556754";
-	char 	a[] = "isdgcshsa";
-	int		c = 15;
-
-	ft_memmove(b, a, c);
-//	memmove(b, a, c);
-	printf("%s", b);
-	return (0);
-}*/

@@ -36,17 +36,3 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	reserved[i] = '\0';
 	return (reserved);
 }
-
-/*
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-
-int	main(void)
-{
-	char	text[] = "Was soll das sein bitte?";
-	int		st = 20;
-	int		len = 0;
-	printf("%s", ft_substr(text, st, len));
-	return (0);
-}*/
