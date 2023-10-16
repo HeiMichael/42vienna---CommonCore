@@ -1,0 +1,2 @@
+This text contains various special characters: !@#$%^&*()-_=+[]{}|;:'",.<>?/
+Make sure your code can handle them without any issues.

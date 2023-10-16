@@ -1,0 +1,19 @@
+This is a test text for your get-next-line code.
+It contains multiple lines with different lengths.
+Make sure your code can handle various line endings,
+such as '\n', '\r', and '\r\n'.
+Also, don't forget to handle edge cases, like an empty line.
+
+Let's add some more lines with special characters:
+Line with spaces only.
+Line with tabs\tand\ttabs.
+Line with trailing spaces.         
+Line with non-ASCII characters: Çåfé ☕️
+
+Now, let's test some edge cases:
+Empty line above this.
+Only spaces and tabs below this.
+Empty lines below this.
+
+And finally, a line with a very long length to check for buffer overflows and performance:
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer eget justo nec est cursus convallis id vel quam. Nullam nec bibendum leo. Integer fringilla odio in vehicula tempus. Sed eu tellus et ligula vulputate facilisis. In hac habitasse platea dictumst. Vivamus aliquam nec erat a euismod. Sed euismod, nisi vel dapibus tristique, erat odio dignissim nisl, eu fermentum purus lectus sed mi. Vestibulum eu lacinia metus, nec tempus libero. Vestibulum fermentum, arcu non pellentesque auctor, ligula erat dictum tortor, et hendrerit quam dui nec odio.

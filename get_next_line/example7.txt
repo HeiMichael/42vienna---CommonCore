@@ -1,0 +1,6 @@
+This text has various line endings:
+Line 1 uses '\n'.
+Line 2 uses '\r'.
+Line 3 uses '\r\n'.
+Line 4 uses '\n'.
+Line 5 uses '\r'.

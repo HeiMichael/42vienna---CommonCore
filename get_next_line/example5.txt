@@ -1,0 +1,3 @@
+Line 1: This text has very long lines that may exceed the buffer size in your code. Be sure to handle such cases gracefully to avoid buffer overflows and performance issues.
+Line 2: This is another long line to test your code's ability to handle long lines properly.
+
