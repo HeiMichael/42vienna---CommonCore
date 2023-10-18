@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line_utils.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miheider <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: miheider <miheider@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 10:29:34 by miheider          #+#    #+#             */
-/*   Updated: 2023/10/13 19:11:36 by miheider         ###   ########.fr       */
+/*   Updated: 2023/10/18 19:47:07 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,6 @@ void	ft_clean_up(t_text **list, t_text *current, char *buf)
 	if (buf)
 	{
 		free(buf);
-		free(current);
 		buf = NULL;
 	}
 }
@@ -100,4 +99,24 @@ char	*ft_strdup(const char *s)
 	}
 	dupl[i] = '\0';
 	return (dupl);
+}
+
+void	*ft_calloc(size_t nmemb, size_t size)
+{
+	unsigned char	*a;
+	size_t			x;
+
+	a = malloc(nmemb * size);
+	if (a == 0)
+		return (NULL);
+	else
+	{
+		x = 0;
+		while (x < (nmemb * size))
+		{
+			a[x] = 0;
+			x++;
+		}
+		return (a);
+	}
 }

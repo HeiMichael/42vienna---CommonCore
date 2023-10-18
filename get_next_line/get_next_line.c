@@ -3,26 +3,22 @@
 /*                                                        :::      ::::::::   */
 /*   get_next_line.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miheider <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: miheider <miheider@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 10:28:24 by miheider          #+#    #+#             */
-/*   Updated: 2023/10/13 19:18:41 by miheider         ###   ########.fr       */
+/*   Updated: 2023/10/18 20:29:58 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-void	ft_set_up(t_text **list)
+void	ft_set_up(t_text **list, char *buf)
 {
-	char	*buf;
 	int		i;
 	int		j;
 	t_text	*current;
 
 	current = *list;
-	buf = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
-	if (!buf)
-		return ;
 	j = 0;
 	while (current)
 	{
@@ -31,7 +27,7 @@ void	ft_set_up(t_text **list)
 			i = 0;
 			while (current->line[i] && current->line[i] != '\n')
 				i++;
-			while (current->line[i++])
+			while (current->line[i] && current->line[i++])
 				buf[j++] = (current)->line[i];
 			buf[j] = '\0';
 			break ;
@@ -39,22 +35,18 @@ void	ft_set_up(t_text **list)
 		free (current->line);
 		current = current->next;
 	}
-	if (!buf)
-		return ;
 	current->line = buf;
 	*list = current;
 //	ft_clean_up(list, current, buf);
 }
 
-char	*ft_get_line(t_text *list)
+char	*ft_get_line(t_text *list, int length)
 {
 	int		i;
 	int		k;
 	char	*next_line;
-	int		length;
 
-	length = ft_str_len(&list);
-	next_line = (char *)malloc((length + 1) * sizeof(char));
+	next_line = (char *)ft_calloc((length + 2) * sizeof(char), 1);
 	if (!next_line)
 		return (NULL);
 	k = 0;
@@ -79,96 +71,99 @@ char	*ft_get_line(t_text *list)
 void	ft_store_line(char *buffer, t_text **list)
 {
 	t_text	*new;
-	t_text	*here;
+	t_text	*current;
 
-	here = NULL;
-	new = (t_text *)malloc(sizeof(t_text));
+	current = NULL;
+	new = (t_text *)ft_calloc(sizeof(t_text), 1);
 	if (NULL == new)
 		return ;
-	new->line = ft_strdup(buffer);
+	if (buffer)
+		new->line = ft_strdup(buffer);
+	else
+		new->line = NULL;
 	new->next = NULL;
-	if (*list == NULL)
+	if (NULL == *list)
 	{
 		*list = new;
-//		free (new);
 	}
 	else
 	{
-		here = *list;
-		while (here->next != NULL)
-			here = here->next;
-		here->next = new;
-//		free (new);
+		current = *list;
+		while (current->next != NULL)
+			current = current->next;
+		current->next = new;
 	}
 }
 
 void	ft_read_the_file(int fd, t_text **list)
 {
-	unsigned int		length;
-	char				*buffer;
+	unsigned int	length;
+	char			*buffer;
 
-	if (!(*list));
-	else if (ft_strchr((*list)->line, '\n'))
+	if (*list && ft_strchr((*list)->line, '\n'))
 		return ;
-	while (1)
+	length = 1;
+	buffer = (char *)ft_calloc((BUFFER_SIZE + 1) * sizeof(char), 1);
+	if (!buffer)
+		return ;
+	while (length > 0)
 	{
-		buffer = (char *)malloc((BUFFER_SIZE + 1) * sizeof(char));
-		if (!buffer)
-			return ;
 		length = read(fd, buffer, BUFFER_SIZE);
-		if (length <= 0)
+		if (length < 0)
 		{
+			ft_store_line(NULL, list);
 			free (buffer);
 			return ;
 		}
 		buffer[length] = '\0';
 		ft_store_line(buffer, list);
 		if (ft_strchr((const char *)buffer, '\n'))
-			return ((void)free (buffer));
-		free (buffer);
+			return ((void) free(buffer));
 	}
+	free (buffer);
 }
 
 char	*get_next_line(int fd)
 {
 	char			*line;
 	static t_text	*list;
+	char			*buf;
+	int				length;
 
-	if (fd < 0 || BUFFER_SIZE <= 0 || fd > MAX_FD)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 1024)
 		return (NULL);
 	ft_read_the_file(fd, &list);
-	if (NULL == list)
+	if (list == NULL)
+	{
 		return (NULL);
-	line = ft_get_line(list);
-	if (line[0] == '\0')
+	}
+	length = ft_str_len(&list);
+	line = ft_get_line(list, length);
+	if (line[0] == 0)
 		return (NULL);
-	ft_set_up(&list);
+	buf = (char *)ft_calloc((BUFFER_SIZE + 1) * sizeof(char), 1);
+	if (!buf)
+		return (NULL);
+	ft_set_up(&list, buf);
 	return (line);
 }
 
-# include<stdio.h>
+#include <stdio.h>
+
 int	main(void)
 {
 	int		fd0;
-//	int		fd1;
-//	int		fd2;
-//	int		fd3;
-//	int		fd4;
-//	int		fd5;
-//	int		fd6;
-//	int		fd7;
-//	int		fd8;
 	char	*line;
 	int		zeile;
 	int		i;
-	
-	zeile = 29;
-	fd0 = open("example2.txt", O_RDONLY);	
+
+	zeile = 15;
+	fd0 = open("example8.txt", O_RDONLY);
 	i = 0;
 	while (i < zeile)
 	{
 		line = get_next_line(fd0);
-		printf("{%s}", line);
+		printf("%s", line);
 		free(line);
 		i++;
 	}
