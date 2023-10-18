@@ -6,7 +6,7 @@
 /*   By: miheider <miheider@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 21:43:36 by miheider          #+#    #+#             */
-/*   Updated: 2023/10/16 15:10:41 by miheider         ###   ########.fr       */
+/*   Updated: 2023/10/17 11:16:31 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,12 @@ static void	search_display(t_vla *vla)
 	}
 }
 
-//STDIN_FILENO = open("1.txt", O_RDONLY);
 int	main(void)
 {
 	t_vla	vla;
 	int		code;
 
+	STDIN_FILENO = open("1.txt", O_RDONLY);
 	if (!vla_init(&vla, INIT_BUFF_SZ))
 		return (free_and_ret(MALLOC_ERROR, &vla, NULL, NULL));
 	code = input_process(&vla);
