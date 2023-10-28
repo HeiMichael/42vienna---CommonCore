@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.c                                    :+:      :+:    :+:   */
+/*   get_next_line_bonus.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: miheider <miheider@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/07 10:28:24 by miheider          #+#    #+#             */
-/*   Updated: 2023/10/22 15:56:04 by miheider         ###   ########.fr       */
+/*   Updated: 2023/10/22 15:18:56 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "get_next_line_bonus.h"
 
 void	ft_set_up(t_text **list, char *buf)
 {
@@ -125,37 +125,38 @@ void	ft_read_the_file(int fd, t_text **list)
 char	*get_next_line(int fd)
 {
 	char			*line;
-	static t_text	*list;
+	static t_text	*list[1024];
 	char			*buf;
 	int				length;
 
-	if (fd < 0 || BUFFER_SIZE <= 0)
+	if (fd < 0 || BUFFER_SIZE <= 0 || fd > 1023)
 		return (0);
-	ft_read_the_file(fd, &list);
-	if (list == NULL || !list->line)
+	ft_read_the_file(fd, &list[fd]);
+	if (list[fd] == NULL || !list[fd]->line)
 		return (NULL);
-	length = ft_str_len(&list);
-	line = ft_get_line(list, length);
+	length = ft_str_len(&list[fd]);
+	line = ft_get_line(list[fd], length);
 	if (!line)
-		return (ft_clean_up(&list, NULL, NULL), NULL);
+		return (ft_clean_up(&list[fd], NULL, NULL), NULL);
 	if (line[0] == 0)
 	{
 		free(line);
-		return (ft_clean_up(&list, NULL, NULL), NULL);
+		return (ft_clean_up(&list[fd], NULL, NULL), NULL);
 	}
 	buf = (char *)ft_calloc((BUFFER_SIZE + 1) * sizeof(char), 1);
 	if (!buf)
-		return (ft_clean_up(&list, NULL, NULL), NULL);
-	ft_set_up(&list, buf);
+		return (ft_clean_up(&list[fd], NULL, NULL), NULL);
+	ft_set_up(&list[fd], buf);
 	return (line);
 }
+
 /*
 #include <stdio.h>
 #include <fcntl.h>
 int main(void)
 {
 	char *a;
-	int fd = open("test.txt", O_RDONLY);
+	int fd = open("read_error.txt", O_RDONLY);
 
 	while ((a = get_next_line(fd)))
 	{
@@ -164,7 +165,6 @@ int main(void)
 	}
 	return 0;
 }
-
 
 #include <stdio.h>
 

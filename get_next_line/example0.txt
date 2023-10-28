@@ -7,7 +7,7 @@ Also, don't forget to handle edge cases, like an empty line.
 Let's add some more lines with special characters:
 Line with spaces only.
 Line with tabs\tand\ttabs.
-Line with trailing spaces.
+Line with trailing spaces.         
 Line with non-ASCII characters: Çåfé ☕️
 
 Now, let's test some edge cases:
