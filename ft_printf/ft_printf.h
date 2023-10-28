@@ -6,7 +6,7 @@
 /*   By: miheider <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 16:08:10 by miheider          #+#    #+#             */
-/*   Updated: 2023/09/27 13:14:27 by miheider         ###   ########.fr       */
+/*   Updated: 2023/10/24 13:12:17 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 
 # include <unistd.h>
 # include <stdarg.h>
-# include <stdlib.h>
 
 int	ft_dec_hexa(unsigned int number, char c);
 int	ft_integer(int nb);

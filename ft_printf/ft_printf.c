@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miheider <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: miheider <miheider@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/09/24 12:10:00 by miheider          #+#    #+#             */
-/*   Updated: 2023/09/27 17:14:34 by miheider         ###   ########.fr       */
+/*   Updated: 2023/10/25 22:58:28 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,8 @@ int	ft_printf(const char *format, ...)
 	int		i;
 
 	initialize(&i, &length);
-	if (!format || !*format)
-		return (0);
+	if (format == NULL)
+		return (-1);
 	va_start (args, format);
 	while (format[i])
 	{
@@ -76,11 +76,11 @@ int	ft_printf(const char *format, ...)
 	va_end (args);
 	return (length);
 }
-/*
+
 #include<stdio.h>
 int main(void)
 {
 //	printf("%");
 	ft_printf("%");
 	return (0);
-}*/
+}
