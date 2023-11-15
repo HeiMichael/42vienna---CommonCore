@@ -10,30 +10,31 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	rescale_pixels(int re, int im, t_fractol *red_thread)
+void	rescale_pixels(int x, int y, t_fractol *red_thread)
 {
+//	rescaling+mandelbrot mit neuen Werten aufrufen
+	double	re;
+	double	im;
 	
-
-
+	re = ((((0.5 - (-2)) * (x - 0)) / (WIDTH)) + (-2));
+	im = ((((1.5 - (-1.5) * (y - 0)) / (HIGTH))) + (-1.5));
+	mandelbrot (re, im, &red_thread);
 }
-
-
-
 
 void pixels(t_fractol *red_thread)
 {
-	int re;
-	int	im;
+	int x;
+	int	y;
 
-	im = 0;
-	while (im <= HIGHT)
+	y = 0;
+	while (x <= HIGHT)
 	{
-		re = 0;
-		while (re <= WIDTH)
+		y = 0;
+		while (y <= WIDTH)
 		{
-			mandelbrot (re, im, red_thread);
-			re++;
+			rescale_pixel (x, y, &red_thread);
+			y++;
 		}
-		im++;
+		x++;
 	}
 }
