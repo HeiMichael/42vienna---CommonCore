@@ -3,15 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miheider <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: miheider <miheider@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 13:23:48 by miheider          #+#    #+#             */
-/*   Updated: 2023/11/15 22:47:50 by miheider         ###   ########.fr       */
+/*   Updated: 2023/11/16 16:48:09 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FRACTOL_H
- #define FLACTOL_H
+ #define FRACTOL_H
 
 
 #include <errno.h>
@@ -23,7 +23,7 @@
 #define HEIGHT	1080
 
 
-typedef struct	s_data 
+typedef struct	s_data
 {
 	void	*img;					//pointer to image struct
 	char	*addr;					//points to actual pixel
@@ -32,7 +32,7 @@ typedef struct	s_data
 	int		endian;
 }	t_data;
 
-typedef struct s_complex			// 
+typedef struct s_complex			//
 {
 	double	real;
 	double	im;
@@ -53,6 +53,24 @@ typedef struct	s_fractol			//est. pointer
 	int		inter_max;
 	t_data	image;
 }	t_fractol;
+
+void	my_mlx_pixel_put(t_data *data, int x, int y, int color);
+void	init(t_fractol *red_thread);
+void	close(t_fractol red_thread);
+void	escape(t_fractol red_thread);
+void	zoom(int button, int x, int y, void *param);
+void	events(t_fractol *red_thread);
+int		main(int argc, char *argv[]);
+int		mandelbrot(int x, int y, t_fractol red_thread);
+void	rescale_pixels(int x, int y, t_fractol *red_thread);
+void 	pixels(t_fractol *red_thread);
+
+
+
+{
+
+
+
 
 
 

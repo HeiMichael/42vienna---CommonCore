@@ -3,12 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   calculate.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miheider <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: miheider <miheider@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 20:19:18 by miheider          #+#    #+#             */
-/*   Updated: 2023/11/08 20:45:40 by miheider         ###   ########.fr       */
+/*   Updated: 2023/11/16 16:33:31 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "fractol.h"
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)
 {

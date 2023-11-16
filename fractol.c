@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fractol.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miheider <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: miheider <miheider@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:42:32 by miheider          #+#    #+#             */
-/*   Updated: 2023/11/15 14:18:51 by miheider         ###   ########.fr       */
+/*   Updated: 2023/11/16 16:46:35 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,13 @@ int	main(int argc, char *argv[])
 	}
 	else
 					//ERROR-MESSAGE + EXIT
-	
+
 	//2. berechnen&ausgeben:
 	if (argv[1] == mandelbrot)
 		mandelbrot();
 	else
 		julia();
-	
+
 	//3. events:
 	events(&red_thread);
 

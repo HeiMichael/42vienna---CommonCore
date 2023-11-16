@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miheider <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: miheider <miheider@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:22:46 by miheider          #+#    #+#             */
-/*   Updated: 2023/11/10 18:57:42 by miheider         ###   ########.fr       */
+/*   Updated: 2023/11/16 16:33:23 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 //COLOR:														///TODO
+#include "fractol.h"
 
 void	close(t_fractol red_thread)
 {

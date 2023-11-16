@@ -6,7 +6,7 @@
 /*   By: miheider <miheider@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 19:44:35 by miheider          #+#    #+#             */
-/*   Updated: 2023/11/16 16:08:31 by miheider         ###   ########.fr       */
+/*   Updated: 2023/11/16 16:32:55 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 // - x Iterationen um Verhalten zu beobachten:
 // - Divergenz(weiß/bunt) oder Konvergenz(schwarz)
 
+#include "fractol.h"
 
 int	mandelbrot(int x, int y, t_fractol red_thread)
 {

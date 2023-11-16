@@ -6,7 +6,7 @@
 /*   By: miheider <miheider@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 19:50:46 by miheider          #+#    #+#             */
-/*   Updated: 2023/11/16 16:08:53 by miheider         ###   ########.fr       */
+/*   Updated: 2023/11/16 16:32:35 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 // - extra: Sierpinski-Dreieck
 // - extra: burning ship
+#include "fractol.h"
 
 int julia(double x, double y, t_fractol red_thread)
 {
