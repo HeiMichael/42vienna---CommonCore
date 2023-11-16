@@ -6,7 +6,7 @@
 #    By: miheider <miheider@42>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/05 17:18:38 by miheider          #+#    #+#              #
-#    Updated: 2023/11/16 16:52:04 by miheider         ###   ########.fr        #
+#    Updated: 2023/11/16 17:26:00 by miheider         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,7 @@ OBJS=$(SRCS:.c=.o)
 B_OBJS=$(B_SRCS:.c=.o)
 
 CC=cc
-CFLAGS=-Wall -Wextra -Werror -g -lmlx -lXext -lX11
+CFLAGS=-Wall -Wextra -Werror -g
 RM=rm -rf
 
 all: $(NAME)

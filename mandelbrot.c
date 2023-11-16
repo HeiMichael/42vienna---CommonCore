@@ -6,7 +6,7 @@
 /*   By: miheider <miheider@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 19:44:35 by miheider          #+#    #+#             */
-/*   Updated: 2023/11/16 16:32:55 by miheider         ###   ########.fr       */
+/*   Updated: 2023/11/16 19:25:37 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 #include "fractol.h"
 
-int	mandelbrot(int x, int y, t_fractol red_thread)
+int	mandelbrot(int x, int y, t_fractol *red_thread)
 {
 	red_thread->z_real = 0.0;
 	red_thread->z_im = 0.0;
@@ -24,8 +24,7 @@ int	mandelbrot(int x, int y, t_fractol red_thread)
 
 	red_thread->c_real = x / red_thread->zoom + //OFFSET?;
 	red_thread->c_im = y / red_thread->zoom + //OFFSET??;
-
-	while (red_thread->iter < red_thread->iter_max)
+	while (red_thread->iter < ITER_MAX)
 	{
 		red_thread->temp = red_thread->z_real;
 		red_thread->z_real = red_thread->z_real * red_thread->z_real -
@@ -35,7 +34,7 @@ int	mandelbrot(int x, int y, t_fractol red_thread)
 		red_thread_iter++;
 	}
 
-	if (red_thread->iter == red_thread->iter_max)
+	if (red_thread->iter == ITER_MAX)
 		coloring_pixels(red_thread, x, y, 0x000000);
 	else
 		coloring_pixels(red_thread, x, y, color * red_thread->iter);
