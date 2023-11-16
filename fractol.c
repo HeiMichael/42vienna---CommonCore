@@ -6,7 +6,7 @@
 /*   By: miheider <miheider@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:42:32 by miheider          #+#    #+#             */
-/*   Updated: 2023/11/16 18:54:43 by miheider         ###   ########.fr       */
+/*   Updated: 2023/11/16 21:43:02 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,20 +71,10 @@ int	main(int argc, char *argv[])
 	{
 		red_thread.name = ft_strdup(argv[1]);
 		init(&red_thread);
-					// if true --> jump into programm;
-					//++ --> initialisieren (connectin, window)
-					//++ --> berechnen
-					// --> darstellen
-					//++ --> events
 	}
 	else
-					//ERROR-MESSAGE + EXIT
-	//2. berechnen&ausgeben:
-	//if (argv[1] == mandelbrot)
-	//	mandelbrot();
-	//else
-	//	julia();
-	//3. events:
+		exit (1);				//ERROR-MESSAGE + EXIT
+	pixels(&red_thread);
 	events(&red_thread);
-
+	close_all(&red_thread);
 }

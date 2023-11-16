@@ -6,7 +6,7 @@
 #    By: miheider <miheider@42>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/05 17:18:38 by miheider          #+#    #+#              #
-#    Updated: 2023/11/16 17:26:00 by miheider         ###   ########.fr        #
+#    Updated: 2023/11/16 22:12:18 by miheider         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ SRCS=calculate.c connection.c events.c fractol.c julia.c mandelbrot.c \
 #B_SRCS=
 
 OBJS=$(SRCS:.c=.o)
-B_OBJS=$(B_SRCS:.c=.o)
+#B_OBJS=$(B_SRCS:.c=.o)
 
 CC=cc
 CFLAGS=-Wall -Wextra -Werror -g
@@ -29,10 +29,10 @@ RM=rm -rf
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(AR) -r $@ $?
+	$(CC) $(CFLAGS) libmlx.a -o $(NAME) -lmlx -lXext -lX11
 
-bonus: $(OBJS) $(B_OBJS)
-	$(AR) -r $(NAME) $?
+#bonus: $(OBJS) $(B_OBJS)
+
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
