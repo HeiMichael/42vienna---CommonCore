@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   mandelbrot.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: miheider <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: miheider <miheider@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/06 19:44:35 by miheider          #+#    #+#             */
-/*   Updated: 2023/11/15 14:18:30 by miheider         ###   ########.fr       */
+/*   Updated: 2023/11/16 16:08:31 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,29 @@
 // - x Iterationen um Verhalten zu beobachten:
 // - Divergenz(weiß/bunt) oder Konvergenz(schwarz)
 
-//                           (b-a) (x-min)
-//rescaling formula: f(x) = --------------- + a
-//		    					 max-min
 
-int	mandelbrot(
+int	mandelbrot(int x, int y, t_fractol red_thread)
 {
-	t_complex	z;
-	t_complex	c;		//point
+	red_thread->z_real = 0.0;
+	red_thread->z_im = 0.0;
+	red_thread->iter = 0;
 
-	z.x 
+	red_thread->c_real = x / red_thread->zoom + //OFFSET?;
+	red_thread->c_im = y / red_thread->zoom + //OFFSET??;
 
+	while (red_thread->iter < red_thread->iter_max)
+	{
+		red_thread->temp = red_thread->z_real;
+		red_thread->z_real = red_thread->z_real * red_thread->z_real -
+			red_thread->z_im * red_thread->z_im + red_thread->c_real;	//Real comp
+		red_thread->z_im = 2 * red_thread->z_im * red_thread->temp + 	//Imag comp
+			red_thread->c_im;
+		red_thread_iter++;
+	}
+
+	if (red_thread->iter == red_thread->iter_max)
+		coloring_pixels(red_thread, x, y, 0x000000);
+	else
+		coloring_pixels(red_thread, x, y, color * red_thread->iter);
 
 }

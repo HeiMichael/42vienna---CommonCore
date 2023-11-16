@@ -6,7 +6,7 @@
 /*   By: miheider <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 13:23:48 by miheider          #+#    #+#             */
-/*   Updated: 2023/11/10 17:20:21 by miheider         ###   ########.fr       */
+/*   Updated: 2023/11/15 22:47:50 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,12 @@ typedef struct	s_fractol			//est. pointer
 	char	*name;
 	double	*zoom;
 	int		iter;
+	double	c_real;
+	double	c_im;
+	double	z_real;
+	double	z_im;
+	double	temp;
+	int		inter_max;
 	t_data	image;
 }	t_fractol;
 

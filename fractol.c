@@ -29,7 +29,7 @@ int	main(int argc, char *argv[])
 	else
 					//ERROR-MESSAGE + EXIT
 	
-	//2. berechnen:
+	//2. berechnen&ausgeben:
 	if (argv[1] == mandelbrot)
 		mandelbrot();
 	else
