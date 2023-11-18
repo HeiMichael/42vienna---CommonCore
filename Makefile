@@ -6,7 +6,7 @@
 #    By: miheider <miheider@42>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/05 17:18:38 by miheider          #+#    #+#              #
-#    Updated: 2023/11/16 22:12:18 by miheider         ###   ########.fr        #
+#    Updated: 2023/11/17 16:08:30 by miheider         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ RM=rm -rf
 all: $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(CFLAGS) libmlx.a -o $(NAME) -lmlx -lXext -lX11
+	$(CC) $(CFLAGS) $(OBJS) libmlx.a -o $(NAME) -lmlx -lXext -lX11
 
 #bonus: $(OBJS) $(B_OBJS)
 

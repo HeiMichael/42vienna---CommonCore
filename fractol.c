@@ -6,7 +6,7 @@
 /*   By: miheider <miheider@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 12:42:32 by miheider          #+#    #+#             */
-/*   Updated: 2023/11/16 21:43:02 by miheider         ###   ########.fr       */
+/*   Updated: 2023/11/18 15:21:03 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,7 @@ int	main(int argc, char *argv[])
 {
 	t_fractol	red_thread;
 
+	red_thread.zoom = 1;
 	if ((argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 10)) ||
 		(argc == 4 && !ft_strncmp(argv[1], "julia", 5)))
 	{
@@ -76,5 +77,6 @@ int	main(int argc, char *argv[])
 		exit (1);				//ERROR-MESSAGE + EXIT
 	pixels(&red_thread);
 	events(&red_thread);
-	close_all(&red_thread);
+	//close_all(&red_thread);
+	return (0);
 }

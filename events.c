@@ -6,7 +6,7 @@
 /*   By: miheider <miheider@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:22:46 by miheider          #+#    #+#             */
-/*   Updated: 2023/11/16 18:45:18 by miheider         ###   ########.fr       */
+/*   Updated: 2023/11/17 18:40:13 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,14 +14,15 @@
 //COLOR:														///TODO
 #include "fractol.h"
 
-void	close_all(t_fractol *red_thread)
+int	close_all(t_fractol *red_thread)
 {
 	mlx_destroy_image(red_thread->mlx_connection, red_thread->image.img);
 	mlx_destroy_window(red_thread->mlx_connection, red_thread->mlx_window);
 	mlx_destroy_display(red_thread->mlx_connection);
 	free(red_thread->mlx_connection);
 	free(red_thread->name);
-	exit(1);														//TODO
+	exit(1);
+	return (0);													//TODO
 }
 
 int	escape(int keysym, t_fractol *red_thread)							//ESC to exit
@@ -57,6 +58,6 @@ void	events(t_fractol *red_thread)
 {
 	mlx_hook(red_thread->mlx_window, KeyPress, KeyPressMask, &escape, &red_thread);	//ESC
 	mlx_mouse_hook(red_thread->mlx_window, &zoom, &red_thread);						//zoom
-	mlx_hook(red_thread->mlx_window, 17, 0L, close, red_thread);					//click on x
+	mlx_hook(red_thread->mlx_window, 17, 0L, *close_all, red_thread);					//click on x
 	mlx_loop(red_thread->mlx_connection);											//no event
 }
