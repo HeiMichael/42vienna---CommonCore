@@ -6,7 +6,7 @@
 /*   By: miheider <miheider@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 14:01:57 by miheider          #+#    #+#             */
-/*   Updated: 2023/11/17 16:16:18 by miheider         ###   ########.fr       */
+/*   Updated: 2023/11/19 15:56:18 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	init(t_fractol *red_thread)
 		free(red_thread->mlx_connection);
 	}
 	red_thread->image.img = mlx_new_image(red_thread->mlx_connection,
-		WIDTH, HEIGHT);	//create image
+		WIDTH, HEIGHT);							//create image
 	if (NULL == red_thread->image.img)
 	{
 		mlx_destroy_window(red_thread->mlx_connection, red_thread->mlx_window);
