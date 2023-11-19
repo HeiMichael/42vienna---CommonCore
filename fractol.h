@@ -6,7 +6,7 @@
 /*   By: miheider <miheider@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 13:23:48 by miheider          #+#    #+#             */
-/*   Updated: 2023/11/19 16:09:38 by miheider         ###   ########.fr       */
+/*   Updated: 2023/11/19 18:11:24 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,20 @@
 #include <X11/keysym.h>
 #include <math.h>
 
-#define WIDTH		600
-#define HEIGHT		600
-#define ITER_MAX	70
-#define COLOR1		0x000000
-#define COLOR2		0x123456
-
+#define WIDTH		800
+#define HEIGHT		800
+#define ITER_MAX	40
+#define COLOR1		0x0
+#define ESCAPE		40
+#define GREEN_MIN	20
+#define GREEN_MAX	255
+#define GREEN_SHIFT	25
+#define RED_MIN		1
+#define RED_MAX		1
+#define RED_SHIFT	1
+#define BLUE_MIN	1
+#define BLUE_MAX	1
+#define BLUE_SHIFT	1
 
 typedef struct	s_data
 {
@@ -69,5 +77,6 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strdup(const char *s);
 void	julia(double x, double y, t_fractol *red_thread);
 int		ft_atoi(const char *nptr);
+double	check_for_color (t_fractol *red_thread);
 
 #endif
