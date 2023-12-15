@@ -38,8 +38,11 @@ void	sort_three(t_stack **stack_a)
 	}
 	else if ((*stack_a)->number > (*stack_a)->next->number && (*stack_a)->prev->number > (*stack_a)->number)
 		sa(stack_a);
+	else if ((*stack_a)->number < (*stack_a)->next->number && (*stack_a)->next->number < (*stack_a)->prev->number)
+		return ;
 	else
 		rra(stack_a);
+	ft_printf("+++head->number=%d --- %d\n", (*stack_a)->number, (*stack_a)->min);
 }
 
 void    sort_four(t_stack **stack_a, t_stack **stack_b)

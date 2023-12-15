@@ -26,6 +26,7 @@ void find_min_max(t_stack **stack_a, long *arg, int argc)
 				min = arg[i];
 		i++;
 	}
+	ft_printf("Minimum==%d\n\n", min);
 	head = *stack_a;
 	i = 0;
 	while (i < argc)
@@ -33,6 +34,7 @@ void find_min_max(t_stack **stack_a, long *arg, int argc)
 		if (head->number == min)
 		{
 			head->min = 1;
+			ft_printf("+++head->number=%d --- %d\n", head->number, head->min);
 			break;
 		}
 		head = head->next;
