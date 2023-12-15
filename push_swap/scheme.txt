@@ -1,0 +1,81 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   scheme.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: miheider <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/22 15:14:20 by miheider          #+#    #+#             */
+/*   Updated: 2023/11/28 19:37:10 by miheider         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+
+PUSH_SWAP:
+
+Rules:
+- two stacks A - B
+- at the beginning: a contains a random amount of neg/pos numbers (no duplicates) --- stack b empty
+- goal: sort in ascending order into stack a with following operations:
+	++// sa (swap a): (swap fst 2 elements at top of a) (nothing if there is only one or no element)
+	++// sb (swap b): same with stack b
+	++// ss: sa and sb at the same time
+
+	++// pa (push a): take first element of b and put an top of a (nothing if b is empty)
+	++// pb (push b): same with stack a
+
+	++// ra (rotate a): shift up all elements of stack a by one (first becomes last)
+	++// rb (rotate b): same for b
+	++// rr: ra and rb at the same time
+
+	++// rra (reverse rotate a): Shift down all elements of stack a by 1
+	++// rrb (reverse rotate b): same for b
+	++// rrr: rra and rrb at the same time
+
+Allowed_Functions:
+- read, write, malloc, free, exit
+- ft_printf
+- libft == YES
+
+Description:
+- program name: push_swap
+- Makefile
+- program push_swap takes as an argument the stack a formatted as a list of integers.
+- first argument should be at the top.
+- program must display the smallest list of instructions possible to sort the stack a, smallest number on top
+- instructions seperated by a \n
+- goal: sort the stack with the smallest number of operations possible
+- no parameter -> give promt back (program must not give sth back)
+- error: must display 'Error' followed by a \n (eg some para are no integers, duplicates, smaller/bigger than integer)
+
+BONUS:
+- program name: checker
+- takes as an arg the stack a formatted as a list of integers. first on top. no arg -> displays nothing
+- it will then wait and read the instructions on the std_input (after each instruction \n !) once everything is read, program has to execute them
+- after executing, stack a is sorted and b empty -> program displays OK + \n on std_output
+- in every other cases it displays 'ERROR'+ \n on std_error
+
+
+TODO:
+++//handle input
+++//check input
+
+--rewrite the functions
+++//what to do with the t_total total (can be used for ifs...)
+--Lösung um einzelne Operationen zu speichern bevor wir sie ausgeben.
+
+++//fill stack_a
+++//fill stack_c
+
+++//sort stack_c --> size of input
+
+++//write func 
+	+// sa/sb/ss
+	+// pa/pb
+	+// ra/rb/rr
+	+// rra/rrb/rrr
+
+--sorting3
+--sorting5
+--mit Zahlen von 0 bis x rechnen (nicht von INTMIN - INTMAX)
+--algorythm
