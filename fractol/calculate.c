@@ -6,7 +6,7 @@
 /*   By: miheider <miheider@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 20:19:18 by miheider          #+#    #+#             */
-/*   Updated: 2023/12/03 14:36:43 by miheider         ###   ########.fr       */
+/*   Updated: 2024/01/03 16:29:17 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void	error_message(int errnumb)
 		ft_putstr_fd("Error: Invalid input. Wrong number of inputs!", 1);
 	if (errnumb == 4)
 		ft_putstr_fd("Error: Invalid input. Input is not a number!", 1);
-	exit (-1);
+	exit (1);
 }
 
 void	my_mlx_pixel_put(t_data *data, int x, int y, int color)

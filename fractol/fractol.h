@@ -6,7 +6,7 @@
 /*   By: miheider <miheider@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/05 13:23:48 by miheider          #+#    #+#             */
-/*   Updated: 2023/12/07 13:10:37 by miheider         ###   ########.fr       */
+/*   Updated: 2024/01/04 17:09:08 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,9 @@
 # include <X11/keysym.h>
 # include <math.h>
 
-# define WIDTH		700
-# define HEIGHT		700
+# define WIDTH		500
+# define HEIGHT		500
+//# define ITER_MAX	70
 # define COLOR1		0x0
 # define COLOR2		0xFFFFFF
 # define ESCAPE		160

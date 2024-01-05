@@ -6,7 +6,7 @@
 /*   By: miheider <miheider@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/09 17:22:46 by miheider          #+#    #+#             */
-/*   Updated: 2023/12/07 13:38:52 by miheider         ###   ########.fr       */
+/*   Updated: 2024/01/03 16:38:54 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -110,62 +110,3 @@ void	events(t_fractol *red_thread)
 	mlx_hook(red_thread->mlx_window, 17, 0L, close_all, red_thread);
 	mlx_loop(red_thread->mlx_connection);
 }
-/*
-int	zoom(int key, int x, int y, t_fractol *red_thread)
-{
-	double	zoom_factor;
-	
-	zoom_factor = 1.0;
-	if (x <= WIDTH && y <= HEIGHT && x >= 0 && y >= 0)
-	{
-		if (key == Button4 && red_thread->zoom > 0.0005)
-			zoom_factor *= 0.98;
-		else if (key == Button5 && red_thread->zoom < 2147483647)
-			zoom_factor *= 1.02;
-		pixels(red_thread);
-	}
-	if (key == Button4)
-	{
-		red_thread->hor += -((y - HEIGHT / 2.0f) / HEIGHT * zoom_factor);
-		red_thread->ver += -((x - WIDTH / 2.0f) / WIDTH * zoom_factor);
-	}
-	if (key == Button5)
-	{
-		red_thread->hor -= -((y - HEIGHT / 2.0f) / HEIGHT * zoom_factor);
-		red_thread->ver -= -((x - WIDTH / 2.0f) / WIDTH * zoom_factor);	
-	}
-	red_thread->zoom *= zoom_factor;
-	red_thread->x = red_thread->curx;
-	red_thread->y = red_thread->cury;
-	pixels(red_thread);
-	return (0);
-}
-
-
-
-
-int zoom(int key, int x, int y, t_fractol *red_thread) 
-{
-	double zoom_factor;
-    
-    red_thread->curx = (double)x / WIDTH;
-    red_thread->cury = (double)y / HEIGHT;
-	zoom_factor = 1.0;
-    if (x <= WIDTH && y <= HEIGHT) {
-        if (key == Button4 && red_thread->zoom > 0.0005)
-            zoom_factor = 0.95;
-        else if (key == Button5 && red_thread->zoom < 2147483647)
-            zoom_factor = 1.05;
-    }
-    double target_zoom = red_thread->zoom * zoom_factor;
-    double cursor_dx = (cursor_x - 0.5);
-    double cursor_dy = (cursor_y - 0.5);
-
-    red_thread->hor += cursor_dx * (target_zoom - red_thread->zoom);
-    red_thread->ver += cursor_dy * (target_zoom - red_thread->zoom);
-    red_thread->zoom = target_zoom;
-
-    pixels(red_thread); // Render the fractal after the zoom
-
-    return 0;
-}*/

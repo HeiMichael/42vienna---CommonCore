@@ -6,7 +6,7 @@
 #    By: miheider <miheider@42>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/05 17:18:38 by miheider          #+#    #+#              #
-#    Updated: 2023/11/19 16:39:02 by miheider         ###   ########.fr        #
+#    Updated: 2024/01/03 14:24:34 by miheider         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -24,7 +24,7 @@ B_SRCS = calculate_bonus.c connection_bonus.c events_bonus.c fractol_bonus.c \
 OBJS = $(addprefix objs/,$(SRCS:.c=.o))
 B_OBJS = $(addprefix objs/,$(B_SRCS:.c=.o))
 
-CC = gcc
+CC = cc
 CFLAGS = -Wall -Wextra -Werror -g -Iincludes
 LIBFT_PATH = ./libft
 RM = rm -rf
@@ -35,11 +35,13 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	@$(LIBFT_MAKE)
-	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT_PATH)/libft.a libmlx.a -o $(NAME) -lmlx -lXext -lX11 -lm
+	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT_PATH)/libft.a -o $(NAME) -lmlx -lXext -lX11 -lm
+	@if [ $$? -eq 0 ]; then echo "\033[1;32mfractol [OK]\033[0m"; else echo "\033[1;31mfractol [KO]\033[0m"; fi
 
 bonus: $(B_OBJS)
 	@$(LIBFT_MAKE)
-	@$(CC) $(CFLAGS) $(B_OBJS) $(LIBFT_PATH)/libft.a libmlx.a -o $(NAME)_bonus -lmlx -lXext -lX11 -lm
+	@$(CC) $(CFLAGS) $(B_OBJS) $(LIBFT_PATH)/libft.a -o $(NAME)_bonus -lmlx -lXext -lX11 -lm
+	@if [ $$? -eq 0 ]; then echo "\033[1;32mfractol_bonus [OK]\033[0m"; else echo "\033[1;31mfractol_bonus [KO]\033[0m"; fi
 
 objs/%.o: %.c | objs
 	@$(CC) $(CFLAGS) -c $< -o $@
