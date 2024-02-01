@@ -6,25 +6,44 @@
 /*   By: miheider <miheider@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 20:12:20 by miheider          #+#    #+#             */
-/*   Updated: 2023/12/14 21:50:52 by miheider         ###   ########.fr       */
+/*   Updated: 2024/01/25 16:26:26 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	error_message(int error)
+char	error_message(int error, long *numbers)
 {
-	if (error == 2)
-		ft_printf("Error: Invalid input. No duplicates allowed!\n");
-	if (error == 3)
-		ft_printf("Error: Invalid input. Input out of range!\n");
-	if (error == 4)
-		ft_printf("Error: Invalid input. Space only is not accepted!\n");
-	if (error == 5)
-		ft_printf("Error: Invalid input. Sign only is not accepted!\n");
-	if (error == 6)
-		ft_printf("Input is already sorted. No action needed!\n");
-	if (error == 7)
-		ft_printf("Error: Invalid input.\n");
+	if (error == 1)
+		ft_printf("Error!\n");
+	free(numbers);
+	exit (1);
+}
+
+void	free_stack(t_stack **stack)
+{
+	t_stack	*current;
+	t_stack	*next_node;
+
+	if (*stack == NULL)
+		return ;
+	current = *stack;
+	next_node = current->next;
+	while (next_node != *stack)
+	{
+		free(current);
+		current = next_node;
+		next_node = current->next;
+	}
+	free(current);
+	*stack = NULL;
+}
+
+void	free_and_exit(t_stack **stack_a, t_stack **stack_c)
+{
+	if (*stack_a)
+		free_stack(stack_a);
+	if (*stack_c)
+		free_stack(stack_c);
 	exit (1);
 }

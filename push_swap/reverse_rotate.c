@@ -6,51 +6,44 @@
 /*   By: miheider <miheider@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/22 17:48:53 by miheider          #+#    #+#             */
-/*   Updated: 2023/12/13 00:07:24 by miheider         ###   ########.fr       */
+/*   Updated: 2023/12/22 13:56:43 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	reverse_rotate(t_stack **stack)
+{
+	t_stack	*head;
+
+	if (*stack != NULL)
+	{
+		head = *stack;
+		head = head->prev;
+		*stack = head;
+	}
+}
+
 void	rra(t_stack **stack_a)
 {
-	t_stack	*head_a;
-
 	if (*stack_a != NULL)
-	{
-		head_a = *stack_a;
-		head_a = head_a->prev;
-		*stack_a = head_a;
-		ft_printf("rra\n");
-	}
+		reverse_rotate(stack_a);
+	ft_printf("rra\n");
 }
 
 void	rrb(t_stack **stack_b)
 {
-	t_stack	*head_b;
-
 	if (*stack_b != NULL)
-	{
-		head_b = *stack_b;
-		head_b = head_b->prev;
-		*stack_b = head_b;
-		ft_printf("rrb\n");
-	}
+		reverse_rotate(stack_b);
+	ft_printf("rrb\n");
 }
 
 void	rrr(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack	*head_a;
-	t_stack	*head_b;
-
 	if (*stack_a != NULL || *stack_b != NULL)
 	{
-		head_a = *stack_a;
-		head_a = head_a->prev;
-		*stack_a = head_a;
-		head_b = *stack_b;
-		head_b = head_b->prev;
-		*stack_b = head_b;
+		reverse_rotate(stack_a);
+		reverse_rotate(stack_b);
 	}
 	ft_printf("rrr\n");
 }

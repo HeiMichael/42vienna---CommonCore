@@ -6,7 +6,7 @@
 #    By: miheider <miheider@42>                     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/05 17:18:38 by miheider          #+#    #+#              #
-#    Updated: 2023/12/12 23:45:22 by miheider         ###   ########.fr        #
+#    Updated: 2024/01/23 23:38:13 by miheider         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,12 +15,10 @@
 NAME = push_swap
 
 SRCS = checks.c main.c push_swap_utils.c push_swap_utils2.c error.c \
-	   algo_simple.c swap.c rotate.c reverse_rotate.c push.c
-
-#B_SRCS =
+	   algo_simple.c swap.c rotate.c reverse_rotate.c push.c \
+	   algo_complex.c algorithm.c \
 
 OBJS = $(addprefix objs/,$(SRCS:.c=.o))
-#B_OBJS = $(addprefix objs/,$(B_SRCS:.c=.o))
 
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror -g -Iincludes
@@ -37,10 +35,6 @@ $(NAME): $(OBJS)
 	@$(LIBFT_MAKE)
 	@$(PRINT_MAKE)
 	@$(CC) $(CFLAGS) $(OBJS) $(LIBFT_PATH)/libft.a $(PRINT_PATH)/libftprintf.a -o $(NAME)
-
-#bonus: $(B_OBJS)
-#	@$(LIBFT_MAKE)
-#	@$(CC) $(CFLAGS) $(B_OBJS) $(LIBFT_PATH)/libft.a libmlx.a -o $(NAME)_bonus -lmlx -lXext -lX11 -lm
 
 objs/%.o: %.c | objs
 	@$(CC) $(CFLAGS) -c $< -o $@

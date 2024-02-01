@@ -6,14 +6,13 @@
 /*   By: miheider <miheider@42>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/12/08 14:59:16 by miheider          #+#    #+#             */
-/*   Updated: 2023/12/14 21:59:50 by miheider         ###   ########.fr       */
+/*   Updated: 2024/01/30 15:04:50 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-#include <complex.h>
 
-long	ft_atol(const char *nptr)
+long	ft_atol(const char *nptr, long *numbers)
 {
 	int		i;
 	long	x;
@@ -31,17 +30,16 @@ long	ft_atol(const char *nptr)
 	}
 	else if (nptr[i] != '\0' && nptr[i] == 43)
 		i++;
-	else if (nptr[i] < 48 || nptr[i] > 57)
-		error_message(7);
+	if ((nptr[i] < 48 || nptr[i] > 57))
+		error_message(1, numbers);
 	while (nptr[i] != '\0' && (nptr[i] >= 48 && nptr[i] <= 57))
-	{
-		x = 10 * x + nptr[i] - 48;
-		i++;
-	}
+		x = 10 * x + nptr[i++] - 48;
+	if (nptr[i] != 0 && (nptr[i] < 48 || nptr[i] > 57))
+		error_message(1, numbers);
 	return (sign * x);
 }
 
-void	length_of_token(char *token)
+void	length_of_token(char *token, long *numbers)
 {
 	long	i;
 
@@ -49,23 +47,56 @@ void	length_of_token(char *token)
 	while (token[i])
 		i++;
 	if (i >= 12)
-		error_message(4);
+		error_message(1, numbers);
 	return ;
 }
+
 int	input_len(char **argv)
 {
 	int	i;
 	int	wc;
 
-    i = 0;
+	wc = 0;
+	i = 0;
 	while (argv[0][i])
 	{
-		while (argv[0][i] && (argv[0][i] == ' ' || argv[0][i] == '\t' || argv[0][i] == '\n'))
+		while (argv[0][i] && (argv[0][i] == ' ' || argv[0][i] == '\t'
+			|| argv[0][i] == '\n'))
 			i++;
 		if (argv[0][i])
 			wc++;
-		while (argv[0][i] && (argv[0][i] != ' ' && argv[0][i] != '\t' && argv[0][i] != '\n'))
+		while (argv[0][i] && (argv[0][i] != ' '
+			&& argv[0][i] != '\t' && argv[0][i] != '\n'))
 			i++;
 	}
 	return (wc);
+}
+
+void	index_stack(t_stack **stack, int x)
+{
+	t_stack	*head;
+	int		i;
+
+	i = 1;
+	if (*stack == NULL)
+		return ;
+	head = *stack;
+	while (1)
+	{
+		head->index = i;
+		i++;
+		head = head->next;
+		if (head == *stack)
+			break ;
+	}
+	head = *stack;
+	i--;
+	while (1)
+	{
+		head->stack = x;
+		head->index_max = i;
+		head = head->next;
+		if (head == *stack)
+			break ;
+	}
 }
