@@ -1,0 +1,30 @@
+#!./interpreter/yasl_linux
+
+0:=:2
+2:2
+2:-:2
+3
+<
+? ("Error - too less argments!\n" print 1 exit)
+!
+=
+1
+<
+? ("Error - <start_num> must be strictly positive\n" print 1 exit)
+eval
+1
+@(
+0:=:1
+1:1
+1:+:1
+#(= print)
+"\n" print
+!
+1:=:0
+1:2
+2:-:2
+2:=:2
+0:2
+2:>:2
+2:? (1:0) : (0:0))
+

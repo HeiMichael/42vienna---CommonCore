@@ -1,0 +1,18 @@
+#!./interpreter/yasl_linux
+
+3 != ? ("Error. Invalid number of arguments.\nUsage: " print print " <separator character> <string>\n" print 1 exit)
+!
+= ][ 1 != ? ("Error. Separator not ok.\n" print 1 exit)
+!
+=:1 0:!											//put separator into stack1
+][
+#(0:=:2 0:!)
+2:=:3 1:=:3 3:==:3 3:? (0:3) : (1:3)
+2:#:4
+4:%@(
+		2:=:2
+		1:=:2
+		2:!=:2 2:? (2:print 1:3) : (2:! 3:=:3 1:3 3:==:3 (3:? ("\n":3 3:print)) 0:3)
+		1:4 4:-:4
+)
+"\n" print

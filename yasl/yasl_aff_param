@@ -1,0 +1,9 @@
+#!./interpreter/yasl_linux
+
+=
+2
+<
+? ("Error: No arguments\n" print 1 exit)
+! !
+#
+#(print "\n" print)

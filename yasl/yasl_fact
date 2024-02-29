@@ -1,0 +1,30 @@
+#!./interpreter/yasl_linux
+
+2 != ? ("Error. Invalid number of arguments.\nUsage: " print print " <positive int>\n" print 1 exit)
+!
+= ][ 0 +:1
+
+{
+	"stack1 = ":0 0:print 1:=:1 1:print "\n":0 0:print
+} print_stack
+1
+@(
+		0:=:0 "0":0 0:<:0 0:? ("Error. Not a valid number.\n" print 1 exit) 
+		"9":0 0:>:0 0:? ("Error. Not a valid number.\n" print 1 exit) 
+		1:1 1:-:1 1:=:1 0:1 1:>:1 1:? (1:0) : (0:0) 
+)
+eval
+//= print "\n" print
+= 0 == ? ("1" print "\n" print 0 exit)
+=:1
+{
+	1:1 1:-:1  													//stack1 - 1
+	1:=:1
+	1:=:1 0:1 1:==:1 1:? (0:print 0:"\n" 0:print 0:0 exit)  	//if stack1 == 1 print stack 0 and exit
+	0:1 1:+:0 													//stack0 = stack1
+	0:*:0
+	0:=:0 0:0 0:<:0 ? ("Error. Value overflowed!\n" print 1 exit)
+	recur  
+} recur
+
+recur
