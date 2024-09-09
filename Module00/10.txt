@@ -1,0 +1,62 @@
+ADD
+Michael
+Heider
+Michi
+012345
+Viennese
+ADD
+Jakob
+Seiderer
+Jaki
+01234567
+from Germany
+ADD
+Christian
+Aigner
+Chrisi
+0123456789
+from Germany too
+ADD
+Nicol
+Weghofer
+Nici
+01234567890123
+loves hotboxes
+ADD
+Viktoria
+Schneider
+Viki
+012
+cub3d partner
+ADD
+Josef
+Koupy
+Jo
+01234567890
+moving helper
+ADD
+Enes Mehmet
+Caliskan
+Eni
+01234567890123456789
+currently at level 4 and 255 Alterian dollars
+ADD
+Averylongname
+Averylongname
+Averylongname
+0123456
+Averlongsecret
+ADD
+Igor
+Shvaiko
+Iggi
+01
+located in cluster one
+ADD
+Filip
+Seles
+Fili
+0
+speaks german very well
+SEARCH
+2
