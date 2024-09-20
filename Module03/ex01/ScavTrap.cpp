@@ -6,14 +6,14 @@
 /*   By: miheider <miheider@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 10:12:54 by miheider          #+#    #+#             */
-/*   Updated: 2024/09/13 08:33:09 by miheider         ###   ########.fr       */
+/*   Updated: 2024/09/20 13:06:19 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScavTrap.hpp"
 
 //Default Constructor
-ScavTrap::ScavTrap() {
+ScavTrap::ScavTrap() : ClapTrap() {
     std::cout << "Default constructor (ScavTrap) called" << std::endl;
 }
 
@@ -58,18 +58,18 @@ void ScavTrap::guardGate() {
 
 void ScavTrap::attack(const std::string& target) {
     if (_hit_points <= 0)
-        std::cout << "ScavTrap " << _name << " cannot attack. No hit points left." << std::endl;
+        std::cout << "ClapTrap " << _name << " cannot attack. No hit points left." << std::endl;
     else if (_energy_points <= 0)
-        std::cout << "ScavTrap " << _name << " cannot attack. No energy points left." << std::endl;
+        std::cout << "ClapTrap " << _name << " cannot attack. No energy points left." << std::endl;
     else {
-        std::cout << "ScavTrap " << _name << " attacks " << target << ", causing "
+        std::cout << "ClapTrap " << _name << " attacks " << target << ", causing "
                 << _attack_damage << " points of damage!" << std::endl;
         _energy_points -= 1;
     }
 }
 
 void ScavTrap::takeDamage(unsigned int amount) {
-    std::cout << "ScavTrap " << _name << " takes " << amount << " points damage." << std::endl;
+    std::cout << "ClapTrap " << _name << " takes " << amount << " points damage." << std::endl;
     if (_hit_points >= amount) {
         _hit_points -= amount;
         if (_hit_points == 0)
@@ -82,11 +82,11 @@ void ScavTrap::takeDamage(unsigned int amount) {
 
 void ScavTrap::beRepaired(unsigned int amount) {
     if (_hit_points <= 0)
-        std::cout << "ScavTrap " << _name << " cannot attack. No hit points left." << std::endl;
+        std::cout << "ClapTrap " << _name << " cannot attack. No hit points left." << std::endl;
     else if (_energy_points <= 0)
-        std::cout << "ScavTrap " << _name << " cannot attack. No energy points left." << std::endl;
+        std::cout << "ClapTrap " << _name << " cannot attack. No energy points left." << std::endl;
     else {
-        std::cout << "ScavTrap " << _name << " gets " << amount << " hit points back." << std::endl;
+        std::cout << "ClapTrap " << _name << " gets " << amount << " hit points back." << std::endl;
         _energy_points -= 1;
         _hit_points += amount;
     }

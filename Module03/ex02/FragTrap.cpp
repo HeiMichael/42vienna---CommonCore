@@ -6,14 +6,14 @@
 /*   By: miheider <miheider@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 11:13:51 by miheider          #+#    #+#             */
-/*   Updated: 2024/09/13 08:36:52 by miheider         ###   ########.fr       */
+/*   Updated: 2024/09/20 13:26:17 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "FragTrap.hpp"
 
 //Default Constructor
-FragTrap::FragTrap() {
+FragTrap::FragTrap() : ClapTrap() {
     std::cout << "Default constructor (FragTrap) called" << std::endl;
 }
 

@@ -6,7 +6,7 @@
 /*   By: miheider <miheider@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 10:43:50 by miheider          #+#    #+#             */
-/*   Updated: 2024/09/12 17:30:51 by miheider         ###   ########.fr       */
+/*   Updated: 2024/09/20 08:07:28 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,12 +25,12 @@ class ClapTrap {
     public:
         ClapTrap();                                     //Default Constructor
         ClapTrap(std::string name);                     //Constructor
-        ~ClapTrap();                                    //Destructor
+        virtual ~ClapTrap();                                    //Destructor
         ClapTrap(const ClapTrap& others);               //Copy Constructor
         ClapTrap& operator=(const ClapTrap& others);    //Copy Assignment Operator
         
-        void attack(const std::string& target);
-        void takeDamage(unsigned int amount);
-        void beRepaired(unsigned int amount);
-        void print_player_stats(void);
+        virtual void attack(const std::string& target);
+        virtual void takeDamage(unsigned int amount);
+        virtual void beRepaired(unsigned int amount);
+        virtual void print_player_stats(void);
 };

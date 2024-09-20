@@ -15,13 +15,7 @@
 #include <string>
 #include "ClapTrap.hpp"
 
-class ScavTrap : virtual public ClapTrap {
-    protected:
-        std::string     _name;
-        unsigned int    _hit_points;
-        unsigned int    _energy_points;
-        unsigned int    _attack_damage;
-    
+class ScavTrap : public ClapTrap {
     public:
         ScavTrap();                                     //Default Constructor
         ScavTrap(std::string name);                     //Constructor

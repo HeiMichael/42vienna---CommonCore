@@ -15,8 +15,8 @@
 #include <string>
 #include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap {
-    private:
+class ScavTrap : virtual public ClapTrap {
+    protected:
         std::string     _name;
         unsigned int    _hit_points;
         unsigned int    _energy_points;
@@ -33,5 +33,5 @@ class ScavTrap : public ClapTrap {
         void    takeDamage(unsigned int amount);
         void    beRepaired(unsigned int amount);
         void    print_player_stats(void);
-        void    guardGate();
+        virtual void    guardGate();
 };

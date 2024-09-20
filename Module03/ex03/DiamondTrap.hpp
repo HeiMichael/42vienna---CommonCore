@@ -6,7 +6,7 @@
 /*   By: miheider <miheider@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:28:58 by miheider          #+#    #+#             */
-/*   Updated: 2024/09/12 17:03:13 by miheider         ###   ########.fr       */
+/*   Updated: 2024/09/20 12:37:51 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,5 +37,7 @@ class DiamondTrap : public ScavTrap, public FragTrap {
         void beRepaired(unsigned int amount);
         void print_player_stats() const;
         void whoAmI() const;
+        void highFivesGuys(void);
+        void guardGate();
 };
 

@@ -6,7 +6,7 @@
 /*   By: miheider <miheider@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/10 10:43:47 by miheider          #+#    #+#             */
-/*   Updated: 2024/09/12 17:25:30 by miheider         ###   ########.fr       */
+/*   Updated: 2024/09/20 13:52:37 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,24 @@
 #include "ClapTrap.hpp"
 #include "ScavTrap.hpp"
 #include "FragTrap.hpp"
-#include "DiamondTrap.hpp"
 
 int main() {
-    DiamondTrap student("Jakob");
+    FragTrap student("Jakob");
     
-    student.print_player_stats();
+    // student.print_player_stats();
     student.attack("Bocal");
-    student.print_player_stats();
+    // student.print_player_stats();
     student.beRepaired(2);
-    student.print_player_stats();
+    // student.print_player_stats();
     student.takeDamage(3);
-    student.print_player_stats();
+    // student.print_player_stats();
     student.attack("you");
-    student.print_player_stats();
+    // student.print_player_stats();
     student.attack("another enemy");
-    student.print_player_stats();
+    // // student.print_player_stats();
     student.highFivesGuys();
     student.takeDamage(120);
-    student.print_player_stats();
+    // student.print_player_stats();
     
     // ScavTrap player("Evaluator");
     // player.print_player_stats();

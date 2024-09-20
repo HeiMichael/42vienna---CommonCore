@@ -6,7 +6,7 @@
 /*   By: miheider <miheider@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/09/12 13:29:02 by miheider          #+#    #+#             */
-/*   Updated: 2024/09/13 08:35:41 by miheider         ###   ########.fr       */
+/*   Updated: 2024/09/20 12:42:53 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,7 +97,14 @@ void DiamondTrap::print_player_stats() const {
 }
 
 void DiamondTrap::whoAmI() const {
-    std::cout << "DiamondTrap name: " << _name 
-            << " and ClapTrap name: " << ClapTrap::_name 
-            << std::endl;
+    std::cout << "DiamondTrap name: " << _name  << ". ClapTrap name: " 
+            << ClapTrap::_name << std::endl;
+}
+
+void DiamondTrap::highFivesGuys(void) {
+    std::cout << "DiamondTrap " << _name << " highfives the guys." << std::endl;
+}
+
+void DiamondTrap::guardGate() {
+    std::cout << "DiamondTrap is now in Gate keeper mode" << std::endl;
 }
