@@ -6,7 +6,7 @@
 /*   By: miheider <miheider@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 15:45:43 by miheider          #+#    #+#             */
-/*   Updated: 2024/11/22 18:11:54 by miheider         ###   ########.fr       */
+/*   Updated: 2024/11/22 22:07:21 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -115,6 +115,8 @@ it will be split again and sorted in.*/
 void PmergeMe::sort_back_deque() {
     std::deque<std::deque<int> > temp;
     std::deque<int> first_half, second_half;
+	size_t i = -1;
+	int special = -1;
 
     temp.clear();
 	std::cout << "-----------------------" << std::endl;
@@ -127,7 +129,7 @@ void PmergeMe::sort_back_deque() {
 	print_deque(_length);
 	std::cout << "helper:\t" << std::endl;
 	print_deque_matrix(_helper_deque);
-    for (size_t i = 0; i < _helper_deque.size(); i++) {
+    for (i = 0; i < _helper_deque.size(); i++) {
         first_half.clear();
 		if (_helper_deque[i].size() == static_cast<size_t>(2 * _size_deque[0])) {
 			first_half.insert(first_half.end(), _helper_deque[i].begin(), _helper_deque[i].begin() + _size_deque[0]);
@@ -137,22 +139,36 @@ void PmergeMe::sort_back_deque() {
 			first_half.insert(first_half.end(), _helper_deque[i].begin(), _helper_deque[i].end() - (_length[0]));
 			temp.push_back(first_half);
 			_helper_deque[i].erase(_helper_deque[i].begin(), _helper_deque[i].end() - (_length[0]));
+			special = i;
 		}
     }
-    // second_half.clear();
-    // second_half.insert(second_half.end(), _helper_deque[0].begin(), _helper_deque[0].end());
-    // temp.push_front(second_half);
-	// int counter = 0;
-    for (size_t i = 0; i < _helper_deque.size(); i++) {
+	i = 0;
+	if (i != static_cast<size_t>(special)) {
+		second_half.clear();
+		second_half.insert(second_half.end(), _helper_deque[0].begin(), _helper_deque[0].end());
+		temp.push_front(second_half);
+	} else {
+		second_half.insert(second_half.end(), _helper_deque[0].begin(), _helper_deque[0].end());
+		std::deque<std::deque<int> >::iterator pos = std::lower_bound(temp.begin(), temp.end(), second_half , compareWithCounter);
+		temp.insert(pos, second_half);
+	}
+	int counter = 1;
+    for (i = 1; i < _helper_deque.size(); i++) {
 		second_half.clear();
 		size_t jt_idx = (_jacobsthal_deque[i]) - 1;
-		std::cout << "jt_index:\t" << jt_idx << std::endl;
+		// std::cout << "jt_index:\t" << jt_idx << std::endl;
 		// if (jt_idx > static_cast<size_t>(_helper_deque.size()))
 		// 	continue ;
-		second_half.insert(second_half.end(), _helper_deque[jt_idx].begin(), _helper_deque[jt_idx].end());
-		std::deque<std::deque<int> >::iterator pos = std::lower_bound(temp.begin(), temp.end()/*begin() + (i + counter + 1)*/, second_half , compareWithCounter);
-		temp.insert(pos, second_half);
-		// counter += 1;
+		if (static_cast<int>(jt_idx) == special) {
+			second_half.insert(second_half.end(), _helper_deque[jt_idx].begin(), _helper_deque[jt_idx].end());
+			std::deque<std::deque<int> >::iterator pos = std::lower_bound(temp.begin(), temp.end(), second_half , compareWithCounter);
+			temp.insert(pos, second_half);			
+		} else {
+			second_half.insert(second_half.end(), _helper_deque[jt_idx].begin(), _helper_deque[jt_idx].end());
+			std::deque<std::deque<int> >::iterator pos = std::lower_bound(temp.begin(), temp.begin() + (jt_idx + counter), second_half , compareWithCounter);
+			temp.insert(pos, second_half);
+		}
+		counter += 1;
 		
 		// if (_helper_deque[jt_idx].size() <= static_cast<size_t>(_size_deque[0])) {
         //     second_half.insert(second_half.end(), _helper_deque[jt_idx].begin(), _helper_deque[jt_idx].end());
