@@ -6,7 +6,7 @@
 /*   By: miheider <miheider@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 15:45:43 by miheider          #+#    #+#             */
-/*   Updated: 2024/11/22 22:07:21 by miheider         ###   ########.fr       */
+/*   Updated: 2024/11/22 22:22:23 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,17 +143,17 @@ void PmergeMe::sort_back_deque() {
 		}
     }
 	i = 0;
-	if (i != static_cast<size_t>(special)) {
-		second_half.clear();
-		second_half.insert(second_half.end(), _helper_deque[0].begin(), _helper_deque[0].end());
-		temp.push_front(second_half);
-	} else {
-		second_half.insert(second_half.end(), _helper_deque[0].begin(), _helper_deque[0].end());
-		std::deque<std::deque<int> >::iterator pos = std::lower_bound(temp.begin(), temp.end(), second_half , compareWithCounter);
-		temp.insert(pos, second_half);
-	}
-	int counter = 1;
-    for (i = 1; i < _helper_deque.size(); i++) {
+	// if (i != static_cast<size_t>(special)) {
+	// 	second_half.clear();
+	// 	second_half.insert(second_half.end(), _helper_deque[0].begin(), _helper_deque[0].end());
+	// 	temp.push_front(second_half);
+	// } else {
+	// 	second_half.insert(second_half.end(), _helper_deque[0].begin(), _helper_deque[0].end());
+	// 	std::deque<std::deque<int> >::iterator pos = std::lower_bound(temp.begin(), temp.end(), second_half , compareWithCounter);
+	// 	temp.insert(pos, second_half);
+	// }
+	int counter = 0;
+    for (i = 0; i < _helper_deque.size(); i++) {
 		second_half.clear();
 		size_t jt_idx = (_jacobsthal_deque[i]) - 1;
 		// std::cout << "jt_index:\t" << jt_idx << std::endl;
@@ -165,7 +165,7 @@ void PmergeMe::sort_back_deque() {
 			temp.insert(pos, second_half);			
 		} else {
 			second_half.insert(second_half.end(), _helper_deque[jt_idx].begin(), _helper_deque[jt_idx].end());
-			std::deque<std::deque<int> >::iterator pos = std::lower_bound(temp.begin(), temp.begin() + (jt_idx + counter), second_half , compareWithCounter);
+			std::deque<std::deque<int> >::iterator pos = std::lower_bound(temp.begin(), temp.end()/*begin() + (jt_idx + counter)*/, second_half , compareWithCounter);
 			temp.insert(pos, second_half);
 		}
 		counter += 1;
