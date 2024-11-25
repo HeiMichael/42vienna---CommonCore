@@ -6,7 +6,7 @@
 /*   By: miheider <miheider@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/28 15:20:05 by miheider          #+#    #+#             */
-/*   Updated: 2024/11/22 13:54:05 by miheider         ###   ########.fr       */
+/*   Updated: 2024/11/25 15:12:12 by miheider         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,9 +28,9 @@ class PmergeMe {
         int                             _size_input;
         std::deque<int>					_input_deque;
         std::deque<std::deque<int> >	_helper_deque;
-		std::deque<int>		            _size_deque;
+		std::deque<int>	            _size_deque;
         std::deque<int>                 _jacobsthal_deque;
-        std::deque<int>                 _length;
+        // std::deque<int>                 _length;
 
 		void							pair_deque();
 		void							sort_deque_first();
