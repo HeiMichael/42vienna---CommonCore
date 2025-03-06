@@ -1,3 +1,0 @@
-// parse variables
-
-$num1 
